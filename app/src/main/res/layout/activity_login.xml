@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".LoginActivity">
+
+
+    <EditText
+        android:layout_marginTop="185dp"
+        android:id="@+id/editTextQ"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:hint="Email"
+        android:textSize="18dp"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:layout_marginTop="25dp"
+        android:id="@+id/editText2Q"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:textSize="18dp"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:layout_marginTop="25dp"
+        android:id="@+id/buttonQ"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Sign In"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/sendlinkQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textStyle="bold"
+        android:textSize="17dp"
+       />
+
+    <TextView
+        android:layout_marginTop="35dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="______________________________________"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:id="@+id/textViewQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create New Shield Account!"
+        android:textStyle="bold"
+        android:textSize="17sp"/>
+
+
+</LinearLayout>
