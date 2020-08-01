@@ -1,236 +1,189 @@
 package com.ez4us.shieldapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.ez4us.shieldapp.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CasesReport extends AppCompatActivity {
 
     DatabaseReference ref;
 
-    String[] States = new String[]{"Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttarakhand","Uttar Pradesh","West Bengal"};
-    int[] Cases = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    ArrayList<CaseModel> CaseModelArrayList;
+    String[] Statename = new String[]{"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttarakhand", "Uttar Pradesh", "West Bengal"};
+    int[] TotalCases = new int[Statename.length];
+    ArrayList<CaseModel> CMAL = new ArrayList<>();
+    ArrayList<Integer> itemList;
     ListView listView;
+    public int num=0;
+    CaseModel p = new CaseModel();
     /*Button rpButton;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.casesdata);
-        /*//------------------------------------------------Report Floating Button-------------------------------
-        rpButton = findViewById(R.id.extFAbtn);
-        rpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity();
-            }
-        });*/
 
-        /*//------------------------------------------Bottom Navigation----------------------------
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
-        bottomNavigationView.setSelectedItemId(R.id.data);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.emergency:
-                        Intent intent = new Intent(getApplicationContext(), SMSsender.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.domestic:
-                        Intent intent1 = new Intent(getApplicationContext(),DomesticVoilence.class);
-                        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent1);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.homeNav:
-                        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-                        intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent2);
-                        overridePendingTransition(0,0);
-                        break;
-
-                    case R.id.data:
-                        break;
-
-                    case R.id.userProfile:
-                        Intent intent3 = new Intent(getApplicationContext(), ProfileActivity.class);
-                        intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent3);
-                        overridePendingTransition(0,0);
-                        break;
-                }
-                return false;
-            }
-        });*/
-
-        //--------------------------------------receiving data from reportbutton-------------------------------
-       /* String receiveData = getIntent().getStringExtra("sendData");
-
-        if(receiveData !=null) {
-            for (int i = 0; i < States.length; i++) {
-                if (States[i] == receiveData) {
-                    Cases[i] = Cases[i] + 1;
-                }
-            }
-        }
-*/
-        //------------------------------------------------Data Service-------------------------------------------------------------------------
 
         listView = findViewById(R.id.listView);
+        /*itemList = new ArrayList<>();
+        CaseModel p = new CaseModel();*/
+        /*String[] Statename = new String[]{"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttarakhand", "Uttar Pradesh", "West Bengal"};
+        int[] TotalCases = new int[Statename.length];*/
+        for (int i = 0; i < 28; i++) {
+            num = 0;
+            ref = FirebaseDatabase.getInstance().getReference("ReportedData");
+            Query query = ref.orderByChild("stateName").equalTo(Statename[i]);
+            final int finalI = i;
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    /*num=0;*/
+                    if (snapshot.exists())
+                        num = (int) snapshot.getChildrenCount();
+                    else
+                        num=0;
+                    /*Log.i("ABCD", String.valueOf(num));*/
+                    /*itemList.add(num);*/
+                    /*callnewactivity(finalI,num);*/
+                    p = new CaseModel(Statename[finalI], num);
+                    Log.i("ABCD1", String.valueOf(num));
+                    CMAL.add(p);
+                    CustomAdapter myCustomAdapter = new CustomAdapter(CasesReport.this, CMAL);
+                    listView.setAdapter(myCustomAdapter);
+                }
 
-        //CaseModelArrayList = new ArrayList<>();
-        CaseModelArrayList = populateList();
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    /*num=0;
+                    p = new CaseModel(Statename[finalI], num);
+                    Log.i("ABCD1", String.valueOf(num));
+                    CMAL.add(p);
+                    CustomAdapter myCustomAdapter = new CustomAdapter(CasesReport.this, CMAL);
+                    listView.setAdapter(myCustomAdapter);*/
+                }
+            });
 
-        CaseAdapter CaseAdapter = new CaseAdapter(this,CaseModelArrayList);
-        listView.setAdapter(CaseAdapter);
-        //---------------------------------------------------------------------------------------------------
+
+
+            /*Log.i("ABCD1", String.valueOf(num));*/
+
+            /*p = new CaseModel(Statename[i], TotalCases[i]);
+            CMAL.add(p);*/
+        }
+
+
+        /*CustomAdapter myCustomAdapter = new CustomAdapter(CasesReport.this, CMAL);
+        listView.setAdapter(myCustomAdapter);*/
 
 
     }
 
-    private ArrayList<CaseModel> populateList(){
-
-        ArrayList<CaseModel> list = new ArrayList<>();
-
-        for(int i = 0; i < States.length; i++){
-            CaseModel CaseModel = new CaseModel();
-            CaseModel.setStates(States[i]);
-            CaseModel.setCases(Cases[i]);
-            list.add(CaseModel);
-        }
-
-        return list;
-    }
-    /*//---------------------------------extended floating button--------------------------
-    public void openActivity() {
-        Intent intent = new Intent(this, reportbutton.class);
-        startActivity(intent);
-    }*/
-
-//---------------------------------extended floating button--------------------------
-    /*@Override
-    public void onClick(View view) {
-        ExtendedFloatingActionButton extFAB = (ExtendedFloatingActionButton) view;
-        if(extFAB.isExtended())
-        {
-            extFAB.shrink(true);
-            startActivity(new Intent(CasesReport.this, reportbutton.class));
-        }
-        else
-        {
-            extFAB.extend(true);
-        }
+    /*private void callnewactivity(int finalI, int i) {
+        p = new CaseModel(Statename[finalI], num);
+        Log.i("ABCD1", String.valueOf(num));
+        CMAL.add(p);
+        CustomAdapter myCustomAdapter = new CustomAdapter(CasesReport.this, CMAL);
+        listView.setAdapter(myCustomAdapter);
     }*/
 }
 
-//------------------caseAdapter class--------------------------------
-class CaseAdapter extends BaseAdapter {
 
-    private Context context;
-    private ArrayList<CaseModel> CaseModelArrayList;
 
-    public CaseAdapter(Context context, ArrayList<CaseModel> CaseModelArrayList) {
+//---------------------------------------------------------------------------
+class CustomAdapter extends BaseAdapter {
 
-        this.context = context;
-        this.CaseModelArrayList = CaseModelArrayList;
-    }
+    Context mContext;
+    ArrayList<CaseModel> CMAL;
 
-    @Override
-    public int getViewTypeCount() {
-        return getCount();
-    }
-    @Override
-    public int getItemViewType(int position) {
+    public CustomAdapter(Context context, ArrayList<CaseModel> CMAL) {
+        mContext = context;
+        this.CMAL = CMAL;
 
-        return position;
     }
 
     @Override
     public int getCount() {
-        return CaseModelArrayList.size();
+        return CMAL.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return CaseModelArrayList.get(position);
+    public Object getItem(int i) {
+        return CMAL.get(i);
     }
 
     @Override
-    public long getItemId(int position) {
-        return 0;
+    public long getItemId(int i) {
+        return i;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+    public View getView(int i, View view, ViewGroup viewGroup) {
 
-        if (convertView == null) {
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_item, null, true);
-
-            holder.StatesName = (TextView) convertView.findViewById(R.id.StatesName);
-            holder.CasesNo = (TextView) convertView.findViewById(R.id.CasesNo);
-
-            convertView.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)convertView.getTag();
+        if(view == null){
+            view = LayoutInflater.from(mContext).inflate(R.layout.list_item, viewGroup, false);
         }
 
-        holder.StatesName.setText(CaseModelArrayList.get(position).getStates());
-        holder.CasesNo.setText(String.valueOf(CaseModelArrayList.get(position).getCases()));
+        CaseModel temp = (CaseModel) getItem(i);
+        TextView SName = (TextView)view.findViewById(R.id.StatesName);
+        TextView TCases = (TextView)view.findViewById(R.id.CasesNo);
 
-        return convertView;
+        SName.setText(temp.getStatename());
+        TCases.setText(""+temp.getTotalcases());
+
+        return view;
     }
-
-    private class ViewHolder {
-
-        protected TextView StatesName, CasesNo;
-
-    }
-
 }
-
-//-------------------------casemodel class---------------------------
+//---------------------------------------------------
 class CaseModel {
-
-    private String states;
-    private int cases;
-
-    public String getStates() {
-        return states;
+    public CaseModel() {
     }
 
-    public void setStates(String state) {
-        this.states = state;
+    public CaseModel(String statename, int totalcases) {
+        this.statename = statename;
+        this.totalcases = totalcases;
     }
 
-    public int getCases() {
-        return cases;
+    String statename;
+    int totalcases;
+
+    public String getStatename() {
+        return statename;
     }
 
-    public void setCases(int Case) {
-        this.cases = Case;
+    public void setStatename(String statename) {
+        this.statename = statename;
+    }
+
+    public int getTotalcases() {
+        return totalcases;
+    }
+
+    public void setTotalcases(int totalcases) {
+        this.totalcases = totalcases;
     }
 
 }

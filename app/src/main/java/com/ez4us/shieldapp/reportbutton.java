@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ez4us.shieldapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class reportbutton extends AppCompatActivity {
 
     //variables
-    EditText StName,DisName,LocAdd,Pin,Res;;
+    EditText StName,DisName,LocAdd,Pin,Res;
     Button REPbutton;
     Button checkButton;
     int maxid=0;
