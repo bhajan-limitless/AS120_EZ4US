@@ -9,28 +9,30 @@
 
 
     <EditText
-        android:layout_marginTop="185dp"
         android:id="@+id/editTextQ"
         android:layout_width="300dp"
         android:layout_height="45dp"
+        android:layout_marginTop="185dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:padding="10dp"
         android:hint="Email"
+        android:inputType="textPersonName"
+        android:padding="10dp"
         android:textSize="18dp"
-        android:inputType="textPersonName"/>
+        tools:text="q@q.in" />
 
     <EditText
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:layout_marginTop="25dp"
         android:id="@+id/editText2Q"
         android:layout_width="300dp"
         android:layout_height="45dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
-        android:textSize="18dp"
+        android:gravity="center_vertical"
         android:hint="Password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textSize="18dp"
+        tools:text="123456" />
 
     <Button
         android:layout_marginTop="25dp"
