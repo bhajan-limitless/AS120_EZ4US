@@ -140,6 +140,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // --------> Folder Creation <--------------
+        File root = new File(getCacheDir()+"/shieldapp/images");
+        if(!root.exists()){
+            root.mkdirs();
+            if(!root.mkdirs()){
+                Toast.makeText(MainActivity.this, "Failed to create directory, Please try again", Toast.LENGTH_LONG).show();
+            }
+        }
+
         //------------------------------------------Bottom Navigation----------------------------
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setSelectedItemId(R.id.homeNav);
