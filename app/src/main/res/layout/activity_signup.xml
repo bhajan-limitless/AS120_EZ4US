@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.ez4us.shieldapp.SignupActivity">
+    <EditText
+        android:layout_marginTop="185dp"
+        android:id="@+id/editText"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Email"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:hint="Password"
+        android:layout_marginTop="25dp"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:layout_marginTop="25dp"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:background="@drawable/rounded_corners"
+        android:textAllCaps="false"
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Sign Up" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?  Sign in here"
+        android:textColor="@color/colorPrimary"/>
+
+</LinearLayout>

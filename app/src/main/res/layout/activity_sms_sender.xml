@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
-    tools:context=".SMSsender">
+    tools:context="com.ez4us.shieldapp.SMSsender">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,45 +22,45 @@
             android:layout_marginTop="30dp"/>
 
         <EditText
+            android:layout_marginTop="165dp"
             android:id="@+id/editTextNumber"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="165dp"
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="7983105956"
+            android:text="@string/_7983105956"
             tools:targetApi="o" />
 
         <EditText
+            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber2"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
             android:hint="Mobile Number"
             android:inputType="number"
             android:padding="10dp"
-            android:text="8630199070"
+            android:text="@string/_8630199070"
             tools:targetApi="o" />
 
         <EditText
+            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber3"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
             android:autofillHints=""
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="8630199070"
+            android:text="@string/_8630199070"
             tools:targetApi="o" />
 
         <EditText
+            android:layout_marginTop="15dp"
             android:id="@+id/editText"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
             android:hint="@string/type_the_message"
             android:inputType="textMultiLine"
-            android:text="Help"
+            android:text="@string/help"
             tools:targetApi="o" />
 
 
@@ -80,6 +80,14 @@
 
     </LinearLayout>
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNav"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_nav"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

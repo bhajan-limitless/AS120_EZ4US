@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.ez4us.shieldapp.DomesticVoilence">
+
+
+
+    <LinearLayout
+        android:layout_marginBottom="85dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Audio Recording"
+            android:layout_margin="20sp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_margin="25dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/rounded_corners"
+                android:id="@+id/audio_record"
+                android:textSize="15sp"
+                android:text="Record Audio"
+                android:textAllCaps="false"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"/>
+
+            <Button
+                android:layout_margin="25dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/rounded_corners"
+                android:id="@+id/audio_stop"
+                android:textSize="15sp"
+                android:text="Stop Recording"
+                android:textAllCaps="false"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Video Recording"
+            android:layout_margin="20sp"/>
+
+        <Button
+            android:layout_margin="20dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/rounded_corners"
+            android:id="@+id/video_record"
+            android:textSize="15sp"
+            android:text="Record Video"
+            android:onClick="captureVideo"
+            android:textAllCaps="false"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            tools:ignore="OnClick" />
+
+
+        <Button
+            android:layout_margin="20dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/rounded_corners"
+            android:id="@+id/domesticPDF"
+            android:textSize="15sp"
+            android:text="Know Your Rights"
+            android:onClick="captureVideo"
+            android:textAllCaps="false"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            tools:ignore="OnClick" />
+
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNav"
+        app:itemBackground="@color/colorPrimaryDark"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_nav"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
+</RelativeLayout>

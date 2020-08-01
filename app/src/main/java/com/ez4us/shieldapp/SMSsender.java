@@ -1,5 +1,6 @@
 package com.ez4us.shieldapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -10,9 +11,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.ez4us.shieldapp.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SMSsender extends AppCompatActivity {
 
@@ -31,10 +36,56 @@ public class SMSsender extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms_sender);
 
+        //------------------------------------------Bottom Navigation----------------------------
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
+        bottomNavigationView.setSelectedItemId(R.id.emergency);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.emergency:
+                        break;
+
+                    case R.id.domestic:
+                        Intent intent1 = new Intent(getApplicationContext(), DomesticVoilence.class);
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent1);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.homeNav:
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.repcomplain:
+                        Intent intent2 = new Intent(getApplicationContext(), reportbutton.class);
+                        intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent2);
+                        overridePendingTransition(0,0);
+                        break;
+
+                    case R.id.userProfile:
+                        Intent intent3 = new Intent(getApplicationContext(), ProfileActivity.class);
+                        intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent3);
+                        overridePendingTransition(0,0);
+                        break;
+                }
+                return false;
+            }
+        });
+
+
+//--------------------------------------------SMS service-------------------------------------------------------------
+
         editText1= (EditText) findViewById(R.id.editTextNumber);
         editText2= (EditText)findViewById(R.id.editTextNumber2);
         editText3= (EditText) findViewById(R.id.editTextNumber3);
         editText4= (EditText)findViewById(R.id.editText);
+
     }
     public void Save(View view){
         int permissionCheck= ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);

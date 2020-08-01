@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ez4us.shieldapp.EditActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/pic_imageview"
+        android:layout_width="250dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+    <EditText
+        android:id="@+id/fullname_edittext"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/age_editText"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+    <EditText
+        android:id="@+id/phone_edittext"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+    <EditText
+        android:id="@+id/email_edittext"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/profession_edittext"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Profession"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/workplace_edittext"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="#0AFFFFFF"
+        android:ems="10"
+        android:hint="Workplace"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+
+
+
+
+
+
+
+    <Button
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_corners"
+        android:id="@+id/register_button"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:textSize="15sp"
+        android:text="Save Changes"
+        android:textAllCaps="false"/>
+
+
+</LinearLayout>

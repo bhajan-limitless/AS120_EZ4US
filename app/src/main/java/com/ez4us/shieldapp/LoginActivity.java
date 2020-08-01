@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ez4us.shieldapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,14 +19,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private Button btnSignIn;
-    private EditText emailId, password;
-    private TextView tvSignUp, forgotpass;
+    EditText emailId, password;
+    Button btnSignIn;
+    TextView tvSignUp, forgotpass;
     FirebaseAuth mFirebaseAuth;
-
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +41,21 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                if( mFirebaseUser != null ) {
-                    ///.............................................
-                    Toast.makeText(LoginActivity.this,"Sign in successful",Toast.LENGTH_LONG).show();
-                    Intent intSignUp = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intSignUp);
+                if( mFirebaseUser != null && mFirebaseUser.isEmailVerified()) {
+
+
+                    if (getIntent().hasExtra("category")) {
+                        Intent intent = new Intent(LoginActivity.this, var_get.class);
+                        intent.putExtra("link",getIntent().getStringExtra("link"));
+                        intent.putExtra("category", getIntent().getStringExtra("category"));
+                        intent.putExtra("UniqueId", getIntent().getStringExtra("UniqueId"));
+                        startActivity(intent);
+
+                    } else {
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(i);
+
+                    }
                 }
                 else{
                     Toast.makeText(LoginActivity.this,"Please Sign In",Toast.LENGTH_SHORT).show();
@@ -78,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful()){
+
                                 Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                                 Toast.makeText(LoginActivity.this,"SignIn Error, Please Try Again",Toast.LENGTH_SHORT).show();
@@ -104,14 +113,14 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intSignUp = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intSignUp = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intSignUp);
             }
         });
         forgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intSignUp = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intSignUp = new Intent(LoginActivity.this, ForgotActivity.class);
                 startActivity(intSignUp);
             }
         });
