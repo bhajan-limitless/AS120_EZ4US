@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_main">
+
+    <EditText
+        android:id="@+id/stateTF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:inputType="textCapWords"
+        android:hint="State" />
+
+
+    <EditText
+        android:id="@+id/districtTF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stateTF"
+        android:layout_alignLeft="@+id/stateTF"
+        android:layout_alignRight="@+id/stateTF"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="District"/>
+
+    <EditText
+        android:id="@+id/locAdrressTF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/districtTF"
+        android:layout_alignLeft="@+id/stateTF"
+        android:layout_alignRight="@+id/stateTF"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Location Address" />
+
+    <EditText
+        android:id="@+id/pincodeTF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/locAdrressTF"
+        android:layout_alignLeft="@+id/stateTF"
+        android:layout_alignRight="@+id/stateTF"
+        android:layout_marginBottom="35dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Pincode"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/reasonTF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pincodeTF"
+        android:layout_alignLeft="@+id/stateTF"
+        android:layout_alignRight="@+id/stateTF"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Reason "
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/repBTN"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Report"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="40dp"
+        android:layout_below="@+id/reasonTF"/>
+
+    <Button
+        android:id="@+id/extFAbtn"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Check Reported Data"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/repBTN"
+        />
+
+
+
+
+</RelativeLayout>
