@@ -7,7 +7,6 @@
     tools:context="com.ez4us.shieldapp.MainActivity"
     android:orientation="vertical">
 
-
     <TextureView
         android:id="@+id/textureView"
         android:layout_width="1px"
@@ -21,13 +20,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
-        <Button
-            android:id="@+id/send_push_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
         <Button
             android:id="@+id/smsandnotificationbutton"
             android:layout_width="160dp"
@@ -39,18 +31,6 @@
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="35dp" />
-
-        <Button
-            android:textSize="15sp"
-            android:layout_margin="10dp"
-            android:id="@+id/btnCapture"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/rounded_corners"
-            android:text="TAKE PICTURE"
-            android:textColor="#fff" />
-
 
 
     </LinearLayout>
