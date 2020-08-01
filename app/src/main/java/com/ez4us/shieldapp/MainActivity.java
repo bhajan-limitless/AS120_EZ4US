@@ -433,7 +433,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         // Handle unsuccessful uploads
-                        Toast.makeText(MainActivity.this, "Upload Error , Please try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Image upload Error , Please try again", Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -600,13 +600,11 @@ public class MainActivity extends AppCompatActivity {
         String UniqueID=FirebaseAuth.getInstance().getCurrentUser().getUid();
         String titleNotification;
 
-
         UniqueID=UniqueID.concat(datetime);
         DatabaseReference safeRef=FirebaseDatabase.getInstance().getReference().child("inDanger").child(UniqueID);
         safeRef.child("Safe").setValue("0");
         safeRef.child("latt1").setValue(v1);
         safeRef.child("long1").setValue(v2);
-
 
         JSONObject json = new JSONObject();
         try {
@@ -620,8 +618,6 @@ public class MainActivity extends AppCompatActivity {
             extraData.put("UniqueId",UniqueID);
             extraData.put("link",smslink);
             extraData.put("category","Shoes");
-
-
 
             json.put("notification",notificationObj);
             json.put("data",extraData);
