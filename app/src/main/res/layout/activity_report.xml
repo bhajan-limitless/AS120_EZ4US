@@ -6,6 +6,7 @@
     android:id="@+id/activity_main">
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/stateTF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
 
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/districtTF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +35,7 @@
         android:hint="District"/>
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/locAdrressTF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +48,7 @@
         android:hint="Location Address" />
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/pincodeTF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +62,7 @@
         android:inputType="phone"/>
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/reasonTF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

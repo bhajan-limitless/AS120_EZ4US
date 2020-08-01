@@ -6,6 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.ez4us.shieldapp.DomesticVoilence">
 
+    <TextView
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Domestoc Violence"
+        android:layout_margin="20sp"/>
+
     <LinearLayout
         android:layout_marginBottom="85dp"
         android:layout_alignParentBottom="true"

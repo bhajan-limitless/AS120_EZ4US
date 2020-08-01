@@ -8,6 +8,7 @@
     tools:context="com.ez4us.shieldapp.LoginActivity">
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:layout_marginTop="185dp"
         android:id="@+id/editTextQ"
         android:layout_width="300dp"
@@ -20,6 +21,7 @@
         android:inputType="textPersonName"/>
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:gravity="center_vertical"
         android:padding="10dp"
         android:layout_marginTop="25dp"

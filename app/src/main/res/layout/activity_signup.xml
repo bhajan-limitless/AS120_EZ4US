@@ -6,7 +6,9 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context="com.ez4us.shieldapp.SignupActivity">
+
     <EditText
+        android:background="@drawable/betteredittext"
         android:layout_marginTop="185dp"
         android:id="@+id/editText"
         android:layout_width="300dp"
@@ -18,6 +20,7 @@
         android:inputType="textPersonName"/>
 
     <EditText
+        android:background="@drawable/betteredittext"
         android:id="@+id/editText2"
         android:layout_width="300dp"
         android:layout_height="40dp"

@@ -22,6 +22,8 @@
             android:layout_marginTop="30dp"/>
 
         <EditText
+            android:background="@drawable/betteredittext"
+            android:paddingStart="10dp"
             android:layout_marginTop="165dp"
             android:id="@+id/editTextNumber"
             android:layout_width="300dp"
@@ -32,6 +34,8 @@
             tools:targetApi="o" />
 
         <EditText
+            android:background="@drawable/betteredittext"
+            android:paddingStart="10dp"
             android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber2"
             android:layout_width="300dp"
@@ -43,6 +47,8 @@
             tools:targetApi="o" />
 
         <EditText
+            android:background="@drawable/betteredittext"
+            android:paddingStart="10dp"
             android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber3"
             android:layout_width="300dp"
@@ -54,6 +60,8 @@
             tools:targetApi="o" />
 
         <EditText
+            android:background="@drawable/betteredittext"
+            android:paddingStart="10dp"
             android:layout_marginTop="15dp"
             android:id="@+id/editText"
             android:layout_width="300dp"
