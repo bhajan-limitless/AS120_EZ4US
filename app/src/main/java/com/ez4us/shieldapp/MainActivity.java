@@ -79,7 +79,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-
     // Date and Time
     Calendar c = Calendar.getInstance();
     SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
@@ -92,14 +91,9 @@ public class MainActivity extends AppCompatActivity {
     private String URL = "https://fcm.googleapis.com/fcm/send";
 
     // Declaring Camera Button and Texture View
-    private Button btnCapture,btnDomesticViolence,profile;
     private TextureView textureView;
 
     FirebaseAuth mFirebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
-
-    // Declaring Get Data Button
-    private Button btnGD;
 
     // Check orientation
     private static final SparseIntArray ORIENTATIONS  = new SparseIntArray();
@@ -138,10 +132,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onError(@NonNull CameraDevice cameraDevice, int i) {
             cameraDevice.close();
-            cameraDevice=null;
         }
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,25 +182,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         mRequestQue = Volley.newRequestQueue(this);
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-
-        Button btttt=findViewById(R.id.send_push_button);
-        btttt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendnotification();
-            }
-        });
 
         notifybtn = (Button) findViewById(R.id.smsandnotificationbutton);
         notifybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                takePicture();
                 sendnotification();
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS);
 
@@ -219,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         // Camera Button and TextureView
         textureView = findViewById(R.id.textureView);
@@ -249,16 +229,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        // Taking Picture
-        btnCapture = findViewById(R.id.btnCapture);
-        btnCapture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                takePicture();
-            }
-        });
-
         //Checking for Permission
         if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
@@ -268,18 +238,6 @@ public class MainActivity extends AppCompatActivity {
         else{
             startService();
         }
-
-    }
-    // -----------------------------------------------------------> Domestic Voilence <-------------------------------------------------------
-    private void openDomesticVoilence() {
-        Intent intent = new Intent(this, DomesticVoilence.class);
-        startActivity(intent);
-    }
-
-    // -------------------------------------------------------------Get Data Opening------------------------------------------------------------------
-    public void openGetData() {
-        Intent intent = new Intent(this, CasesReport.class);
-        startActivity(intent);
     }
 
     // Creating a method to start the location service
@@ -302,7 +260,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(this, ":Permission Needed", Toast.LENGTH_LONG).show();
-
                 }
         }
     }
@@ -327,15 +284,10 @@ public class MainActivity extends AppCompatActivity {
                 v1 = strlat;
                 v2 = strlongitude;
                 String link = "www.google.com/maps/search/?api=1&query=" + strlat + "," + strlongitude;
-
-                //Toast.makeText(MainActivity.this, link, Toast.LENGTH_LONG).show();
-
                 smslink = link;
-                //sendCurrentLocationToSecondActivity();
             }
         }
     }
-
 
     //---------------------------------------------< Camera Service ~ milannzz <------------------------------------------------
 
@@ -377,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
             if(!root.exists()){
                 root.mkdirs();
                 if(!root.mkdirs()){
-                    Toast.makeText(MainActivity.this, "Failed to create directory", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Failed to create directory, Please try again", Toast.LENGTH_LONG).show();
                 }
             }
             // -----------> File Creation <--------------
@@ -450,7 +402,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
         //---------------------------------------------> Upload Image to Firebase ~ milannzz <------------------------------------------------
-
         FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();
         final String UniqueID = mAuth.getCurrentUser().getUid();
@@ -473,10 +424,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         // Handle unsuccessful uploads
-                        Toast.makeText(MainActivity.this, "Upload Error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Upload Error , Please try again", Toast.LENGTH_LONG).show();
                     }
                 });
-
     }
 
     private void createCameraPreview() {
@@ -525,7 +475,6 @@ public class MainActivity extends AppCompatActivity {
             StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
             assert map != null;
             imageDimension = map.getOutputSizes(SurfaceTexture.class)[0];
-            //Check realtime permission if run higher API 23
             if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
             {
                 ActivityCompat.requestPermissions(this,new String[]{
@@ -617,8 +566,6 @@ public class MainActivity extends AppCompatActivity {
 
             SmsManager smsManager = SmsManager.getDefault();
 
-            //String l= smslink;
-
             for (String string : arrayList) {
                 smsManager.sendTextMessage(string, null, message + " " + smslink, null, null);
             }
@@ -628,7 +575,6 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<String> arrayList = new ArrayList<String>();
             arrayList.add("8630199070");
             arrayList.add("7983105956");
-            //arrayList.add("8630199070");
             SmsManager smsManager = SmsManager.getDefault();
 
             String l = smslink;
@@ -640,7 +586,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "message sent to default contacts please press emergency contacts first.", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void sendnotification() {
         String UniqueID=FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -703,26 +648,4 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-public void readData(){
-        String id=FirebaseAuth.getInstance().getCurrentUser().getUid();
-    FirebaseDatabase.getInstance().getReference().child("Users").child(id).addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            String name=snapshot.child("name").getValue().toString();
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
- //               Log.d(Tag.DatabaseError.getMessage());
-        }
-    });
-}
-
-public void sendCurrentLocationToSecondActivity(){
-    Intent intent = new Intent(MainActivity.this, var_get.class);
-    intent.putExtra("boyLattitude", v1);
-    intent.putExtra("boyLongitude", v2);
-    startActivity(intent);
-}
 }
