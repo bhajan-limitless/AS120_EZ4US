@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">ShieldApp</string>
+    <string name="app_name">Shield</string>
+    <string name="emergency_contacts">Emergency contacts</string>
+    <string name="type_the_number">Type the number</string>
+    <string name="_7983105956">7983105956</string>
+    <string name="type_the_number3">Type the number3</string>
+    <string name="type_the_message">Type the message</string>
+    <string name="help">Help!</string>
+    <string name="save_sms">Save SMS</string>
+    <string name="type_the_number2">Type the number2</string>
+    <string name="_8630199070">8630199070</string>
+    <string name="contacts_edit">contacts edit</string>
 </resources>
