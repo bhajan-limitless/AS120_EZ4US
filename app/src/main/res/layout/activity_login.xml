@@ -39,6 +39,7 @@
         android:textColor="#fff"
         android:textAllCaps="false"
         android:layout_width="300dp"
+        android:background="@android:color/holo_blue_dark"
         android:layout_height="40dp"
         android:text="Sign In"/>
 
@@ -51,13 +52,6 @@
         android:textStyle="bold"
         android:textSize="17dp"
        />
-
-    <TextView
-        android:layout_marginTop="35dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="______________________________________"
-        android:textSize="17sp"/>
 
     <TextView
         android:layout_marginTop="40dp"
