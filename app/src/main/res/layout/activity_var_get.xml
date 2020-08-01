@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#D14B4B"
     android:orientation="vertical"
     tools:context="com.ez4us.shieldapp.var_get">
 
-    <Button
-        android:id="@+id/var_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/rounded_corners"
-        android:textColor="#fff"
-        android:text="GO back"
-        />
     <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="#F15353"
+        android:background="@drawable/rounded_corners"
         android:gravity="center"
         android:orientation="horizontal"
         tools:visibility="visible">
@@ -156,7 +148,7 @@ android:layout_marginStart="15dp"
         <Button
             android:id="@+id/iWillHelp"
             android:layout_width="178dp"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_corners"
             android:text="I will Help"
@@ -168,7 +160,7 @@ android:layout_marginStart="15dp"
             android:id="@+id/refresh_save"
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_margin="5dp"
             android:background="@drawable/rounded_corners"
             android:text="Mark Safe"
@@ -176,16 +168,13 @@ android:layout_marginStart="15dp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18dp" />
 
-
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:layout_marginTop="10dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
@@ -217,11 +206,11 @@ android:layout_marginTop="10dp"
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Get Current Location"
         android:textSize="20sp"
         android:id="@+id/go_to_link"
-        android:background="@color/quantum_googgreen"
+        android:background="@drawable/rounded_corners"
         android:textColor="#fff"
         android:layout_margin="10dp"
         android:autoLink="web"
@@ -233,5 +222,15 @@ android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
+    <Button
+        android:id="@+id/var_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_corners"
+        android:textColor="#fff"
+        android:text="GO back"
+        />
 
 </LinearLayout>

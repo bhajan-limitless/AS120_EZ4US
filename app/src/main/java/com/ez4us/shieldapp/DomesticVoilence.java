@@ -112,8 +112,6 @@ public class DomesticVoilence extends AppCompatActivity {
             }
         });
 
-
-
         // Intitalize variables
         btnStop.setEnabled(false);
 
