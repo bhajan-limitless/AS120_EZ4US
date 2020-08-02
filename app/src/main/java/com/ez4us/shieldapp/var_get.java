@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -45,7 +46,7 @@ public class var_get extends AppCompatActivity{
     int num=0;
     int temp=0,counter=0;
     String category;
-    private TextView number_save,uniqueid_save,age_save,name_save,refresh_save,safeNo_save,distanceAndDuration;
+    private TextView number_save,uniqueid_save,age_save,name_save,refresh_save,safeNo_save,distanceAndDuration,justText;
     private Button back_btn , link_save;
     private ImageView image_save;
 
@@ -107,7 +108,7 @@ public class var_get extends AppCompatActivity{
         boyUniqueId= FirebaseAuth.getInstance().getCurrentUser().getUid();
         Button iwillHelp=findViewById(R.id.iWillHelp);
         link_save= findViewById(R.id.go_to_link);
-
+        justText=findViewById(R.id.just_text);
 
 
 
@@ -171,12 +172,22 @@ public class var_get extends AppCompatActivity{
 
 
 
+
+
+        if(temp!=1){
+            link_save.setVisibility(View.INVISIBLE);
+            justText.setVisibility(View.INVISIBLE);
+        }
         iwillHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 willYouHelp();
             }
         });
+
+
+
+
        refresh_save.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -198,6 +209,8 @@ public class var_get extends AppCompatActivity{
             }
         });
         refresh();
+
+
 
     }
 
@@ -237,6 +250,9 @@ public class var_get extends AppCompatActivity{
                                     dangerReference.child("latt2").setValue(boyLat2);
                                     dangerReference.child("long2").setValue(boyLon2);
                                     addDistanceToTextView();
+                                    link_save.setVisibility(View.VISIBLE);
+                                    justText.setVisibility(View.VISIBLE);
+
                                 }
 
                                 @Override
@@ -528,7 +544,8 @@ public class var_get extends AppCompatActivity{
                         }
                     }
                 }
-                link_save.setText(locationLink);
+                    link_save.setText(locationLink);
+
             }
 
             @Override

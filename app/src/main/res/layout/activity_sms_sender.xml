@@ -73,7 +73,6 @@
             android:background="@drawable/rounded_corners"
             android:ems="10"
             android:textSize="15sp"
-            android:onClick="Save"
             android:text="Save Contacts"
             android:textAllCaps="false"
             android:textColor="#FFFFFF" />

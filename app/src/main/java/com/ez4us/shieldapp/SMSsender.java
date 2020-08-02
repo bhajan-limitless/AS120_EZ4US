@@ -167,7 +167,7 @@ public class SMSsender extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                if (snapshot.child("EmergencyNumbers").exists() ) {
+                if (snapshot.hasChild("EmergencyNumbers") ) {
 
                     ref2.addValueEventListener(new ValueEventListener() {
                         @Override
