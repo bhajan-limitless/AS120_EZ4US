@@ -434,8 +434,6 @@ public class var_get extends AppCompatActivity{
 
     }
 
-
-
     public void fetchImage() {
         storage= FirebaseStorage.getInstance();
         storageReferenceFetchImage=storage.getReferenceFromUrl("gs://shieldappsih.appspot.com/Profile/"+girlUniqueId+"/").child("profile_pic.jpg");
@@ -460,6 +458,7 @@ public class var_get extends AppCompatActivity{
         }
 
     }
+
     public void markSafe(){
         userReference.child(boyUniqueId).addValueEventListener(new ValueEventListener() {
             @Override
