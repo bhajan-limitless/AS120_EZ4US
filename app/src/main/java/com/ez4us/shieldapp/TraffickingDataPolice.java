@@ -27,7 +27,7 @@ public class TraffickingDataPolice extends AppCompatActivity {
                         break;
 
                     case R.id.harVolBtn:
-                        Intent intent1 = new Intent(getApplicationContext(), PoliceLoginActivity.class);
+                        Intent intent1 = new Intent(getApplicationContext(), PoliceMainActivity.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent1);
                         overridePendingTransition(0, 0);
