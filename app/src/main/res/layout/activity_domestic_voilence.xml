@@ -23,17 +23,28 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/domestic_radio"
+        <EditText
+            android:id="@+id/probET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Domestic Violence Report" />
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="type of problem"
+            />
 
-        <RadioButton
-            android:id="@+id/trafficking_radio"
+        <EditText
+            android:id="@+id/multiLineET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trafficking Report" />
+            android:layout_margin="20dp"
+            android:layout_below="@+id/probET"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+
 
         <TextView
             android:textSize="20sp"
@@ -103,6 +114,16 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             tools:ignore="OnClick" />
+        <Button
+            android:id="@+id/savebutton"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/rounded_corners"
+            android:layout_below="@+id/multiLineET"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:text="Button" />
 
     </LinearLayout>
 
