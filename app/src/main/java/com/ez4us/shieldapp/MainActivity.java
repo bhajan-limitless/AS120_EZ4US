@@ -572,42 +572,85 @@ public class MainActivity extends AppCompatActivity {
 
     public void MyMessage() {
 
-        Intent intent = getIntent();
-        int n_o_c = intent.getIntExtra(SMSsender.EXTRA_NUMBER3, 0);
-        String m1 = intent.getStringExtra(SMSsender.EXTRA_NUMBER);
-        String m2 = intent.getStringExtra(SMSsender.EXTRA_NUMBER1);
-        String m3 = intent.getStringExtra(SMSsender.EXTRA_NUMBER2);
+       // Intent intent = getIntent();
+        //int n_o_c = intent.getIntExtra(SMSsender.EXTRA_NUMBER3, 0);
+        //String m1 = intent.getStringExtra(SMSsender.EXTRA_NUMBER);
+        //String m2 = intent.getStringExtra(SMSsender.EXTRA_NUMBER1);
+        //String m3 = intent.getStringExtra(SMSsender.EXTRA_NUMBER2);
 
-        String message = intent.getStringExtra(SMSsender.EXTRA_TEXT);
+       FirebaseAuth mAuth= FirebaseAuth.getInstance();
+        String currentUserUid = mAuth.getCurrentUser().getUid();//get the unique id of user
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid);
+        final DatabaseReference ref2=FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid).child("EmergencyNumbers");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        if (n_o_c >= 1) {
+                if (snapshot.hasChild("EmergencyNumbers") ) {
 
-            ArrayList<String> arrayList = new ArrayList<String>();
-            arrayList.add(m1);
-            arrayList.add(m2);
-            arrayList.add(m3);
+                    ref2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            SmsManager smsManager = SmsManager.getDefault();
 
-            for (String string : arrayList) {
-                smsManager.sendTextMessage(string, null, message + " " + smslink, null, null);
+                            String m1 = snapshot.child("Phone1").getValue().toString();
+                            String m2 = snapshot.child("Phone2").getValue().toString();
+                            String m3 = snapshot.child("Phone3").getValue().toString();
+
+                            // String message = intent.getStringExtra(SMSsender.EXTRA_TEXT);
+                            String message="Help Me!!!";
+                            int n_o_c=1;
+                            if (n_o_c >= 1) {
+
+                                ArrayList<String> arrayList = new ArrayList<String>();
+                                arrayList.add(m1);
+                                arrayList.add(m2);
+                                arrayList.add(m3);
+
+                                SmsManager smsManager = SmsManager.getDefault();
+
+                                for (String string : arrayList) {
+                                    smsManager.sendTextMessage(string, null, message + " " + smslink, null, null);
+                                }
+                                Toast.makeText(MainActivity.this, "sent", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                ArrayList<String> arrayList = new ArrayList<String>();
+                                arrayList.add("8630199070");
+                                arrayList.add("7983105956");
+                                SmsManager smsManager = SmsManager.getDefault();
+
+                                String l = smslink;
+
+                                for (String string : arrayList) {
+                                    smsManager.sendTextMessage(string, null, "Help!" + smslink, null, null);
+                                }
+
+                                Toast.makeText(MainActivity.this, "message sent to default contacts please press emergency contacts first.", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Add Contact Numbers First",Toast.LENGTH_LONG).show();
+                }
             }
-            Toast.makeText(this, "sent", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        } else {
-            ArrayList<String> arrayList = new ArrayList<String>();
-            arrayList.add("8630199070");
-            arrayList.add("7983105956");
-            SmsManager smsManager = SmsManager.getDefault();
-
-            String l = smslink;
-
-            for (String string : arrayList) {
-                smsManager.sendTextMessage(string, null, "Help!" + smslink, null, null);
             }
+        });
 
-            Toast.makeText(this, "message sent to default contacts please press emergency contacts first.", Toast.LENGTH_SHORT).show();
-        }
+
+
+
     }
 
     private void sendnotification() {
