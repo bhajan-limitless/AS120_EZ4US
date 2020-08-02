@@ -6,40 +6,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.ez4us.shieldapp.DomesticVoilence">
 
-    <TextView
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Violence | Harassment"
-        android:layout_margin="20sp"/>
-
     <LinearLayout
         android:layout_marginBottom="85dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/domestic_radio"
+        <TextView
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Domestic Violence Report" />
+            android:text="Violence | Harassment"
+            android:layout_margin="20sp"/>
 
-        <RadioButton
-            android:id="@+id/trafficking_radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trafficking Report" />
+        <EditText
+            android:layout_margin="10dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/betteredittext"
+            android:text="Category"/>
+
+        <EditText
+            android:layout_margin="10dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/betteredittext"
+            android:text="Category"/>
 
         <TextView
             android:textSize="20sp"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Audio Recording"
             android:layout_margin="20sp"/>
 
@@ -73,8 +75,8 @@
         <TextView
             android:textSize="20sp"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Video Recording"
             android:layout_margin="20sp"/>
 
@@ -95,10 +97,9 @@
             android:layout_margin="20dp"
             android:textColor="#ffffff"
             android:background="@drawable/rounded_corners"
-            android:id="@+id/domesticPDF"
+            android:id="@+id/submit_report"
             android:textSize="15sp"
-            android:text="Know Your Rights"
-            android:onClick="captureVideo"
+            android:text="Submit"
             android:textAllCaps="false"
             android:layout_width="300dp"
             android:layout_height="40dp"
