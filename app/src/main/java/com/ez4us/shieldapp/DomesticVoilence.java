@@ -42,8 +42,11 @@ public class DomesticVoilence extends AppCompatActivity {
     SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
     String datetime = datetimeformat.format(c.getTime());
 
-    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
+    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
     String date = dateformat.format(c.getTime());
+
+    //variable declare
+
 
     // Declare variable
     private static int Video_Request =101;
@@ -289,5 +292,7 @@ public class DomesticVoilence extends AppCompatActivity {
     private void RequestPermissions() {
         ActivityCompat.requestPermissions(DomesticVoilence.this, new String[]{RECORD_AUDIO, WRITE_EXTERNAL_STORAGE}, REQUEST_AUDIO_PERMISSION_CODE);
     }
+
+
 
 }
