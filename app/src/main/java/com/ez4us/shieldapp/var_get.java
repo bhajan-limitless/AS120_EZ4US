@@ -120,8 +120,7 @@ public class var_get extends AppCompatActivity{
         userReference=rootReference.child("Users");
         girlReference=rootReference.child("inDanger").child(girlUniqueIdplusDate);
 
-        dangerReference.child("latt2").setValue(boyLat2);
-        dangerReference.child("long2").setValue(boyLon2);
+
     //.........................................Add Functions from below................................................................
 
 
@@ -142,6 +141,9 @@ public class var_get extends AppCompatActivity{
         if(temp!=1){
             link_save.setVisibility(View.INVISIBLE);
             justText.setVisibility(View.INVISIBLE);
+        }else{
+            dangerReference.child("latt2").setValue(boyLat2);
+            dangerReference.child("long2").setValue(boyLon2);
         }
         iwillHelp.setOnClickListener(new View.OnClickListener() {
             @Override

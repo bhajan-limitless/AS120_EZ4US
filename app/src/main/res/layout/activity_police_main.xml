@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".PoliceMainActivity">
+
+
+    <Button
+        android:layout_marginTop="25dp"
+        android:id="@+id/trafficking"
+        android:background="@drawable/rounded_corners"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Trafficking Reports"/>
+    <Button
+        android:layout_marginTop="25dp"
+        android:id="@+id/domestic"
+        android:background="@drawable/rounded_corners"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Domestic Violence Reports"/>
+</LinearLayout>

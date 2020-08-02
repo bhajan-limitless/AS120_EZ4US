@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
-    Button btnSignIn;
+    Button btnSignIn,police;
     TextView tvSignUp, forgotpass;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignIn=findViewById(R.id.buttonQ);
         tvSignUp=findViewById(R.id.textViewQ);
         forgotpass=findViewById(R.id.sendlinkQ);
-
+        police=findViewById(R.id.police);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -63,6 +63,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+        police.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ii=new Intent(LoginActivity.this,PoliceLoginActivity.class);
+                startActivity(ii);
+            }
+        });
 
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
