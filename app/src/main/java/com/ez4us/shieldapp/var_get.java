@@ -47,7 +47,7 @@ public class var_get extends AppCompatActivity{
     Double v1,v2;
     String v3 ,v4;
     int num=0;
-    int temp=0,counter=0;
+    int temp=0,counter=0,exitTemp=0;
     String category;
     private TextView number_save,uniqueid_save,age_save,name_save,refresh_save,safeNo_save,distanceAndDuration,justText;
     private Button back_btn , link_save;
@@ -78,6 +78,9 @@ public class var_get extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_var_get);
 //------------------------------------------------------Location----------------------------------------
+
+
+
 
 
 //....................................................value dalo..........................................
@@ -117,6 +120,7 @@ public class var_get extends AppCompatActivity{
         userReference=rootReference.child("Users");
         girlReference=rootReference.child("inDanger").child(girlUniqueIdplusDate);
 
+
     //.........................................Add Functions from below................................................................
 
 
@@ -126,8 +130,8 @@ public class var_get extends AppCompatActivity{
 
         Toast.makeText(var_get.this,"no2", LENGTH_LONG);
 
-        boyLat2=30.2909096;//my coordinate
-        boyLon2=78.0017146;
+       // boyLat2=30.2909096;//my coordinate
+        //boyLon2=78.0017146;
 
 
 
@@ -137,6 +141,9 @@ public class var_get extends AppCompatActivity{
         if(temp!=1){
             link_save.setVisibility(View.INVISIBLE);
             justText.setVisibility(View.INVISIBLE);
+        }else{
+            dangerReference.child("latt2").setValue(boyLat2);
+            dangerReference.child("long2").setValue(boyLon2);
         }
         iwillHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,8 +206,12 @@ public class var_get extends AppCompatActivity{
                 v3= lat1;
                 v4= long1;
 
-                Toast.makeText(var_get.this,"THis is it" + v3+","+v4, LENGTH_LONG).show();
+                if (temp==1 && exitTemp==0) {
+                    dangerReference.child("latt2").setValue(v3);
+                    dangerReference.child("long2").setValue(v4);
+                    //Toast.makeText(var_get.this,"THis is it" + v3+","+v4, LENGTH_LONG).show();
 
+                }
             }
 
         }
@@ -238,9 +249,9 @@ public class var_get extends AppCompatActivity{
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     String name=snapshot.child("name").getValue().toString();
                                     dangerReference.child("Name").setValue(name);
-                                    dangerReference.child("latt2").setValue(boyLat2);
-                                    dangerReference.child("long2").setValue(boyLon2);
+
                                     addDistanceToTextView();
+
                                     link_save.setVisibility(View.VISIBLE);
                                     justText.setVisibility(View.VISIBLE);
 
@@ -353,7 +364,8 @@ public class var_get extends AppCompatActivity{
                             public void onClick(DialogInterface dialog,
                                                 int which)
                             {
-
+                                exitTemp=1;
+                                temp=0;
                                 Intent ii=new Intent(var_get.this, MainActivity.class);
                                 startActivity(ii);
                                 // If user click no
@@ -419,9 +431,6 @@ public class var_get extends AppCompatActivity{
         addGirlData();
         fetchCoordinatesOfGirl();
         getNoOfPeopleWhoMarkedSafe();
-        if (temp==1) {
-            setCoordinatesOfBoy();
-        }
 
     }
 
@@ -489,26 +498,25 @@ public class var_get extends AppCompatActivity{
                 final String longg1=snapshot.child("long1").getValue().toString();
 
 
+                    dangerReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String lat2 = snapshot.child("latt2").getValue().toString();
+                            String lon2 = snapshot.child("long2").getValue().toString();
 
-                dangerReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String lat2=snapshot.child("latt2").getValue().toString();
-                        String lon2=snapshot.child("long2").getValue().toString();
+                            Float f = getDistance(Double.parseDouble(latt1), Double.parseDouble(longg1), Double.parseDouble(lat2), Double.parseDouble(lon2));
+                            BigDecimal bd = new BigDecimal(Float.toString(f));
+                            bd = bd.setScale(3, BigDecimal.ROUND_HALF_UP);
+                            distanceAndDuration.setText("Distance : " + bd + " Kilometers");
+                        }
 
-                        Float f=getDistance(Double.parseDouble(latt1),Double.parseDouble(longg1),Double.parseDouble(lat2),Double.parseDouble(lon2));
-                        BigDecimal bd = new BigDecimal(Float.toString(f));
-                        bd = bd.setScale(3, BigDecimal.ROUND_HALF_UP);
-                        distanceAndDuration.setText("Distance : "+bd+ " Kilometers");
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                }
 
-                    }
-                });
-
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
