@@ -24,18 +24,21 @@
             android:layout_margin="20sp"/>
 
         <EditText
+            android:id="@+id/categoryET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/betteredittext"
-            android:text="Category"/>
+            android:hint="Category"/>
 
         <EditText
+            android:id="@+id/reasonET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/betteredittext"
-            android:text="Category"/>
+            android:hint="Reason"
+            android:inputType="textMultiLine"/>
 
         <TextView
             android:textSize="20sp"
