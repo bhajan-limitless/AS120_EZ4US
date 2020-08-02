@@ -7,15 +7,131 @@
     android:orientation="vertical"
     tools:context=".PoliceMainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_baseline_account_circle_24"/>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sharadha Pandey"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Work place harassment"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zipcode"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_baseline_account_circle_24"/>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Durga dixit"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sexual harassment"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zipcode"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_baseline_account_circle_24"/>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minakshi dubey"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Domestic Violence"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"/>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zipcode"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavPol"
         android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
         android:layout_height="wrap_content"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
