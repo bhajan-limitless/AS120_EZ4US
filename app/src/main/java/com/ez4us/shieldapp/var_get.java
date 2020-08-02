@@ -341,20 +341,6 @@ public class var_get extends AppCompatActivity{
         builder.setCancelable(false);
         builder
                 .setPositiveButton(
-                        "Yes",
-                        new DialogInterface
-                                .OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which)
-                            { markSafe();
-                                Intent ii=new Intent(var_get.this, MainActivity.class);
-                                startActivity(ii);
-                            }
-                        });
-        builder
-                .setNegativeButton(
                         "No",
                         new DialogInterface
                                 .OnClickListener() {
@@ -362,10 +348,26 @@ public class var_get extends AppCompatActivity{
                             @Override
                             public void onClick(DialogInterface dialog,
                                                 int which)
+                            { markSafe();
+                                dialog.cancel();
+                            }
+                        });
+        builder
+                .setNegativeButton(
+                        "Yes",
+                        new DialogInterface
+                                .OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which)
                             {
+
+                                Intent ii=new Intent(var_get.this, MainActivity.class);
+                                startActivity(ii);
                                 // If user click no
                                 // then dialog box is canceled.
-                                dialog.cancel();
+
                             }
                         });
 
