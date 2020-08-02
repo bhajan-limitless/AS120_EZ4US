@@ -63,7 +63,6 @@
             android:text="@string/help"
             tools:targetApi="o" />
 
-
         <Button
             android:layout_marginTop="15dp"
             android:id="@+id/Save"
