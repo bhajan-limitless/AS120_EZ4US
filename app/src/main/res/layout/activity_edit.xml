@@ -21,7 +21,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Full Name"
         android:inputType="textPersonName"
@@ -32,7 +32,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Age"
         android:inputType="textPersonName"
@@ -42,7 +42,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Phone"
         android:inputType="textPersonName"
@@ -52,7 +52,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Profession"
         android:inputType="textPersonName"
@@ -74,16 +74,11 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:background="#0AFFFFFF"
+        android:background="@drawable/betteredittext"
         android:ems="10"
         android:hint="Workplace"
         android:inputType="textPersonName"
         android:padding="10dp" />
-
-
-
-
-
 
 
     <Button

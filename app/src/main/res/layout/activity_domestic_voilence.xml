@@ -6,6 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.ez4us.shieldapp.DomesticVoilence">
 
+    <TextView
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Domestoc Violence"
+        android:layout_margin="20sp"/>
+
     <LinearLayout
         android:layout_marginBottom="85dp"
         android:layout_alignParentBottom="true"
@@ -24,30 +32,28 @@
             android:layout_margin="20sp"/>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
+
             <Button
-                android:layout_margin="25dp"
                 android:textColor="#ffffff"
                 android:background="@drawable/rounded_corners"
                 android:id="@+id/audio_record"
                 android:textSize="15sp"
                 android:text="Record Audio"
                 android:textAllCaps="false"
-                android:layout_width="150dp"
+                android:layout_width="125dp"
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"/>
 
             <Button
-                android:layout_margin="25dp"
                 android:textColor="#ffffff"
                 android:background="@drawable/rounded_corners"
                 android:id="@+id/audio_stop"
                 android:textSize="15sp"
                 android:text="Stop Recording"
                 android:textAllCaps="false"
-                android:layout_width="150dp"
+                android:layout_width="125dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
@@ -69,7 +75,7 @@
             android:text="Record Video"
             android:onClick="captureVideo"
             android:textAllCaps="false"
-            android:layout_width="370dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             tools:ignore="OnClick" />
 
@@ -82,7 +88,7 @@
             android:text="Know Your Rights"
             android:onClick="captureVideo"
             android:textAllCaps="false"
-            android:layout_width="370dp"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             tools:ignore="OnClick" />
 
@@ -92,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottomNav"
-        app:itemBackground="@color/colorPrimaryDark"
+        app:itemBackground="@color/colorPrimary"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_nav"

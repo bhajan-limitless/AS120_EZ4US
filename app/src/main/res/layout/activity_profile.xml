@@ -13,23 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
-
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="391dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
         <ImageView
-            android:layout_marginTop="10dp"
+
             android:id="@+id/user_imageview"
-            android:layout_width="120dp"
+            android:layout_width="125dp"
             android:layout_gravity="center"
-            android:layout_height="120dp"
-            android:layout_margin="5dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/ic_baseline_account_circle_24"
             android:layout_centerHorizontal="true"/>
 
         <TextView
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:hint="Name"
             android:textAlignment="textEnd"
-            android:textSize="25sp" />
-            app:srcCompat="@drawable/ic_baseline_account_circle_24"/>
+            android:textSize="18sp" />
+
     </LinearLayout>
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Unique ID"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/later_textview"
@@ -179,9 +179,8 @@
             android:textSize="15sp"
             android:id="@+id/edit"
             android:layout_width="300dp"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-
+            android:layout_height="40dp"
+            android:layout_margin="25dp"
             android:background="@drawable/rounded_corners"
             android:textAllCaps="false"
             android:text="Edit Profile"
@@ -190,8 +189,8 @@
         <Button
             android:id="@+id/logout"
             android:layout_width="300dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="40dp"
+
             android:textAllCaps="false"
             android:background="@drawable/rounded_corners"
             android:text="Sign Out"
@@ -205,7 +204,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/bottomNav"
-        app:itemBackground="@color/colorPrimaryDark"
+        app:itemBackground="@color/colorPrimary"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_nav"
