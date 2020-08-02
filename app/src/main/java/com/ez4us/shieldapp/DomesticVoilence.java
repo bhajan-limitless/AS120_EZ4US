@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ez4us.shieldapp.R;
@@ -22,6 +23,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -46,7 +49,11 @@ public class DomesticVoilence extends AppCompatActivity {
     String date = dateformat.format(c.getTime());
 
     //variable declare
-
+    Button sumbit;
+    EditText category;
+    EditText reason;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     // Declare variable
     private static int Video_Request =101;
@@ -61,6 +68,15 @@ public class DomesticVoilence extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_domestic_voilence);
+
+        //---------finding textfied using id-------------------
+        category = findViewById(R.id.categoryET);
+        reason = findViewById(R.id.reasonET);
+        sumbit = findViewById(R.id.submit_report);
+        //---------UID--------------------------------
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        final String UniqueID = mAuth.getCurrentUser().getUid();
 
         //------------------------------------------Bottom Navigation----------------------------
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
@@ -210,6 +226,25 @@ public class DomesticVoilence extends AppCompatActivity {
                 captureVideo();
             }
         });
+        //------------------------------submit-report-------------------------------------
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("ReportedData");
+        sumbit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String catET = category.getText().toString().trim().toUpperCase();
+                String resET = reason.getText().toString().trim();
+                databaseReference.child(catET).child(UniqueID).child(datetime).setValue(resET);
+                Toast.makeText(DomesticVoilence.this, "File Reported Sucessfully", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+
+
+
 
     }
 
