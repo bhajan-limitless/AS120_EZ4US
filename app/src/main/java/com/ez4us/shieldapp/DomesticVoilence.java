@@ -42,7 +42,7 @@ public class DomesticVoilence extends AppCompatActivity {
     SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
     String datetime = datetimeformat.format(c.getTime());
 
-    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
+    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
     String date = dateformat.format(c.getTime());
 
     // Declare variable
