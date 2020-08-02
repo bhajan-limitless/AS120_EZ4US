@@ -30,7 +30,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sharadha Pandey"/>
+                    android:text="Milan Kandwal"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Durga dixit"/>
+                    android:text="Puranjan Prithu"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Minakshi dubey"/>
+                    android:text="Mukesh Bhauguna"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"

@@ -32,7 +32,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shakshi negi"/>
+                    android:text="Sorav Negi"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Geetanjali kandari "/>
+                    android:text="Bhajan Singh Kandari "/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Micky Bhahuguna"/>
+                    android:text="Mukesh Bhahuguna"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
