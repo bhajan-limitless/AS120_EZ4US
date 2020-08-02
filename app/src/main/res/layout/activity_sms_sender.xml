@@ -22,46 +22,38 @@
             android:layout_marginTop="30dp"/>
 
         <EditText
-            android:background="@drawable/betteredittext"
-            android:paddingStart="10dp"
-            android:layout_marginTop="165dp"
             android:id="@+id/editTextNumber"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="165dp"
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="@string/_7983105956"
+
             tools:targetApi="o" />
 
         <EditText
-            android:background="@drawable/betteredittext"
-            android:paddingStart="10dp"
-            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber2"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:hint="Mobile Number"
             android:inputType="number"
             android:padding="10dp"
-            android:text="@string/_8630199070"
+
             tools:targetApi="o" />
 
         <EditText
-            android:background="@drawable/betteredittext"
-            android:paddingStart="10dp"
-            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber3"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:autofillHints=""
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="@string/_8630199070"
+
             tools:targetApi="o" />
 
         <EditText
-            android:background="@drawable/betteredittext"
-            android:paddingStart="10dp"
             android:layout_marginTop="15dp"
             android:id="@+id/editText"
             android:layout_width="300dp"
@@ -92,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottomNav"
-        app:itemBackground="@color/colorPrimary"
+        app:itemBackground="@color/colorPrimaryDark"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_nav"

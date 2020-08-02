@@ -13,13 +13,27 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ez4us.shieldapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SMSsender extends AppCompatActivity {
+
+    FirebaseAuth mAuth;
+    DatabaseReference reference;
+    String currentUserUid;
+    Button saveContact;
+
+    String ph1,ph2,ph3;
 
     public static final String EXTRA_NUMBER3="com.example.shieldapp.EXTRA_NUMBER3";
     public static final String EXTRA_NUMBER="com.example.shieldapp.EXTRA_NUMBER";
@@ -35,6 +49,12 @@ public class SMSsender extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms_sender);
+
+        mAuth= FirebaseAuth.getInstance();
+        currentUserUid = mAuth.getCurrentUser().getUid();//get the unique id of user
+        reference= FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid).child("EmergencyNumbers");
+
+
 
         //------------------------------------------Bottom Navigation----------------------------
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
@@ -84,58 +104,104 @@ public class SMSsender extends AppCompatActivity {
         editText1= (EditText) findViewById(R.id.editTextNumber);
         editText2= (EditText)findViewById(R.id.editTextNumber2);
         editText3= (EditText) findViewById(R.id.editTextNumber3);
-        editText4= (EditText)findViewById(R.id.editText);
+        saveContact=findViewById(R.id.Save);
 
-    }
-    public void Save(View view){
-        int permissionCheck= ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
+        ph1=editText1.getText().toString().trim();
+        ph2=editText2.getText().toString().trim();
+        ph3=editText3.getText().toString().trim();
 
-        if(permissionCheck== PackageManager.PERMISSION_GRANTED) {
 
-            Sop();
+
+        saveContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int permissionCheck= ContextCompat.checkSelfPermission(SMSsender.this, Manifest.permission.SEND_SMS);
+                if(permissionCheck== PackageManager.PERMISSION_GRANTED) {
+                    Sop();
+                }
+
+                else{
+                    ActivityCompat.requestPermissions(SMSsender.this,new String[]{Manifest.permission.SEND_SMS},0);
+                }
+            }
+        });
+
+        if(ph1=="---"  || ph1=="")
+        {
+            Toast.makeText(SMSsender.this,"Add contact to the fields so that an sms will be send in case of emergency",Toast.LENGTH_LONG).show();
+        }else{
+            show();
         }
 
-        else{
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},0);
-        }
+
+
     }
 
     public void Sop(){
-
-        //editText4.setText(editText4.getText().toString().trim());
-
-        //String ph1=editText1.getText().toString().trim();
-        //String ph2=editText2.getText().toString().trim();
-        //String ph3=editText3.getText().toString().trim();
-        //String Message=editText4.getText().toString().trim();
-
-        SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(SMSsender.this);
-        pref.edit().putString(EXTRA_NUMBER,editText1.getText().toString().trim()).apply();
-        pref.edit().putString(EXTRA_NUMBER1,editText2.getText().toString().trim()).apply();
-        pref.edit().putString(EXTRA_NUMBER2,editText3.getText().toString().trim()).apply();
-        pref.edit().putString(EXTRA_TEXT,editText4.getText().toString().trim()).apply();
-
-
-        String pho1=pref.getString(EXTRA_NUMBER,"");
-        editText1.setText(pho1);
-        String pho2=pref.getString(EXTRA_NUMBER1,"");
-        editText2.setText(pho2);
-        String pho3=pref.getString(EXTRA_NUMBER2,"");
-        editText3.setText(pho3);
-        String Message=pref.getString(EXTRA_TEXT,"");
-        editText3.setText(Message);
+        create(ph1,ph2,ph3);
 
         nof_calls += 1;
 
         Intent intent =new Intent(this, MainActivity.class);
-        intent.putExtra(EXTRA_NUMBER,pho1);
-        intent.putExtra(EXTRA_NUMBER1,pho2);
-        intent.putExtra(EXTRA_NUMBER2,pho3);
-        intent.putExtra(EXTRA_TEXT,Message);
+        intent.putExtra(EXTRA_NUMBER,ph1);
+        intent.putExtra(EXTRA_NUMBER1,ph2);
+        intent.putExtra(EXTRA_NUMBER2,ph3);
         intent.putExtra(EXTRA_NUMBER3,nof_calls);
         startActivity(intent);
 
         Toast.makeText(this, "Edited! now press the SOS button", Toast.LENGTH_SHORT).show();
 
     }
+
+    private void create(String ph1, String ph2, String ph3) {
+        reference.child("Phone1").setValue(ph1);
+        reference.child("Phone2").setValue(ph2);
+        reference.child("Phone3").setValue(ph3);
+    }
+
+    public  void show(){
+
+        reference= FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid);
+        final DatabaseReference ref2=FirebaseDatabase.getInstance().getReference().child("Users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.child("EmergencyNumbers").exists() ) {
+
+                    ref2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                            String p1 = snapshot.child("Phone1").getValue().toString();
+                            String p2 = snapshot.child("Phone2").getValue().toString();
+                            String p3 = snapshot.child("Phone3").getValue().toString();
+
+                            editText1.setText(p1);
+                            editText2.setText(p2);
+                            editText3.setText(p3);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+
+
 }
