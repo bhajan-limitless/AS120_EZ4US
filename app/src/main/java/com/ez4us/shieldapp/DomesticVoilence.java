@@ -36,11 +36,14 @@ import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class DomesticVoilence extends AppCompatActivity {
+
     // Date and Time
     Calendar c = Calendar.getInstance();
-    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
-    String datetime = dateformat.format(c.getTime());
+    SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
+    String datetime = datetimeformat.format(c.getTime());
 
+    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
+    String date = dateformat.format(c.getTime());
 
     // Declare variable
     private static int Video_Request =101;
@@ -173,7 +176,7 @@ public class DomesticVoilence extends AppCompatActivity {
                 storageReference  = FirebaseStorage.getInstance().getReference();
 
                 Uri upfile = Uri.fromFile(new File(audiofile));
-                StorageReference riversRef = storageReference.child("audios/"+UniqueID+"/"+datetime+".3gp");
+                StorageReference riversRef = storageReference.child("Reports/Domestic/"+UniqueID+"/"+date+"/Audios/"+datetime+".3gp");
 
                 riversRef.putFile(upfile)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -245,7 +248,7 @@ public class DomesticVoilence extends AppCompatActivity {
             mAuth = FirebaseAuth.getInstance();
             final String UniqueID = mAuth.getCurrentUser().getUid();
 
-            StorageReference riversRef = storageReference.child("videos/"+UniqueID+"/"+datetime+".mp4");
+            StorageReference riversRef = storageReference.child("Reports/Domestic/"+UniqueID+"/"+date+"/Videos/"+datetime+".mp4");
 
             riversRef.putFile(myvideo)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

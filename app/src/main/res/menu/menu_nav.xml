@@ -9,7 +9,7 @@
     <item
         android:id="@+id/domestic"
         android:icon="@drawable/ic_baseline_group_24"
-        android:title="Domestic Violence" />
+        android:title="Violence | Harassment" />
 
     <item
         android:id="@+id/homeNav"

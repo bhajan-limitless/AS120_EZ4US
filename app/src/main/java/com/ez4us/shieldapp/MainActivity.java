@@ -81,8 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
     // Date and Time
     Calendar c = Calendar.getInstance();
-    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
-    String datetime = dateformat.format(c.getTime());
+    SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
+    String datetime = datetimeformat.format(c.getTime());
+
+    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
+    String date = dateformat.format(c.getTime());
+
 
     //initializing a button for emergency contacts
     Button button;
@@ -419,7 +423,7 @@ public class MainActivity extends AppCompatActivity {
         storageReference  = FirebaseStorage.getInstance().getReference();
 
         Uri upfile = Uri.fromFile(file);
-        StorageReference riversRef = storageReference.child("images/"+UniqueID+"/"+"IMG"+datetime+".jpg");
+        StorageReference riversRef = storageReference.child("Reports/trafficking/"+UniqueID+"/"+date+"/Images/"+datetime+".jpg");
 
         riversRef.putFile(upfile)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
