@@ -78,15 +78,6 @@ public class var_get extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_var_get);
 //------------------------------------------------------Location----------------------------------------
-        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-        {
-            //REQUEST PERMISSION SINCE PERMISSION IS NOT GRANTED
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }
-        else{
-            startService();
-        }
-
 
 
 //....................................................value dalo..........................................
@@ -132,31 +123,6 @@ public class var_get extends AppCompatActivity{
      //............................location nikalne ke function se variable v1 aur v2 ki value is comment lines ke bivh daal..............................
 
 
-
-        //show dialog
-        /**final ProgressDialog pd=new ProgressDialog(this);
-        pd.setTitle("Getting Your Location...");
-        pd.show();
-        class LocationBroadcastReciver extends BroadcastReceiver {
-            @Override
-            public void onReceive(Context context, Intent intent){
-                if(intent.getAction().equals("act_location")){
-                    double lat = intent.getDoubleExtra("Latitude", 0f);
-                    double longitude = intent.getDoubleExtra("Longitude", 0f);
-                    //Toast.makeText(MainActivity.this, "Lat :" + lat + "Long :" + longitude, Toast.LENGTH_LONG).show();
-
-                    String strlat = Double.toString(lat);
-                    String strlongitude = Double.toString(longitude);
-
-                    v3 = strlat;
-                    v4 = strlongitude;
-
-                    Toast.makeText(var_get.this,"no1", LENGTH_LONG);
-                }
-            }
-        }
-        //............................location nikalne ke function se variable v1 aur v2 ki value is comment lines ke bivh daal...............................
-**/
 
         Toast.makeText(var_get.this,"no2", LENGTH_LONG);
 

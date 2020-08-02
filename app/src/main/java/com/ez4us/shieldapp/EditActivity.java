@@ -1,7 +1,12 @@
 package com.ez4us.shieldapp;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -36,6 +41,8 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.IOException;
 
+import static android.widget.Toast.LENGTH_LONG;
+
 
 public class EditActivity extends AppCompatActivity {
     private EditText nameEditText, professionEditText, workEditText, ageEditText;
@@ -69,6 +76,16 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+
+        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            //REQUEST PERMISSION SINCE PERMISSION IS NOT GRANTED
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        else{
+            startService();
+        }
+
 
         mAuth= FirebaseAuth.getInstance();
         UniqueID = mAuth.getCurrentUser().getUid();//get the unique id of user
@@ -130,6 +147,36 @@ public class EditActivity extends AppCompatActivity {
 
 
     }
+    public String lat1, long1;
+
+    void startService() {
+        LocationBroadcastReceiver receiver = new LocationBroadcastReceiver();
+        IntentFilter filter = new IntentFilter("act_location");
+        registerReceiver(receiver, filter);
+        Intent intent = new Intent(EditActivity.this, LocationService.class);
+        startService(intent);
+    }
+
+    public class LocationBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("act_location")){
+                double lat = intent.getDoubleExtra("Latitude",0f);
+
+                double longi = intent.getDoubleExtra("Longitude",0f);
+
+                String lat1 = Double.toString(lat);
+
+                String long1 = Double.toString(longi);
+
+
+
+            }
+
+        }
+    }
+
 
     private void choosePicture() {
         Intent intent=new Intent();
