@@ -14,8 +14,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ez4us.shieldapp.R;
@@ -34,6 +37,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -50,11 +54,12 @@ public class DomesticVoilence extends AppCompatActivity {
 
     //variable declare
     Button sumbit;
-    EditText category;
+    AutoCompleteTextView category;
+    ImageView ddimg;
     EditText reason;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
+    private static final String[] Category_List = new String[]{"Child Trafficking","Domestic Violence","Sexual Harassment","Workplace Harrasment"};
     // Declare variable
     private static int Video_Request =101;
     Button btnRecordVideo;
@@ -73,6 +78,8 @@ public class DomesticVoilence extends AppCompatActivity {
         category = findViewById(R.id.categoryET);
         reason = findViewById(R.id.reasonET);
         sumbit = findViewById(R.id.submit_report);
+        ddimg = findViewById(R.id.DDimage);
+        category.setThreshold(1);
         //---------UID--------------------------------
         FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();
@@ -241,9 +248,15 @@ public class DomesticVoilence extends AppCompatActivity {
 
             }
         });
-
-
-
+//----------dropdown menu-------------------------------------------------
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Category_List);
+        category.setAdapter(adapter);
+        ddimg.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                category.showDropDown();
+            }
+        });
 
 
     }

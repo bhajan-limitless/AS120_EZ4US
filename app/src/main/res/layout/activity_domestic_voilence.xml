@@ -23,13 +23,27 @@
             android:text="Violence | Harassment"
             android:layout_margin="20sp"/>
 
-        <EditText
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <AutoCompleteTextView
             android:id="@+id/categoryET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/betteredittext"
+            android:layout_centerHorizontal="true"
             android:hint="Category"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DDimage"
+                android:padding="5dp"
+                android:layout_alignTop="@+id/categoryET"
+                android:layout_alignRight="@+id/categoryET"
+                android:layout_alignBottom="@+id/categoryET"
+                android:src="@mipmap/baseline_arrow_drop_down_black_24" />
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/reasonET"
