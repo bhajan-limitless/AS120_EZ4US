@@ -249,6 +249,9 @@ public class var_get extends AppCompatActivity{
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     String name=snapshot.child("name").getValue().toString();
                                     dangerReference.child("Name").setValue(name);
+                                    dangerReference.child("latt2").setValue("30.2909096");
+                                    dangerReference.child("long2").setValue("78.0017146");
+
 
                                     addDistanceToTextView();
 
@@ -386,12 +389,6 @@ public class var_get extends AppCompatActivity{
                 num=((int) snapshot.getChildrenCount())-3;
                 number_save.setText(Integer.toString(num));
             }
-
-
-
-
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
@@ -473,8 +470,6 @@ public class var_get extends AppCompatActivity{
             }
         });
     }
-
-
 
     public float getDistance(double lat1, double lon1, double lat2, double lon2) {
         android.location.Location homeLocation = new android.location.Location("");

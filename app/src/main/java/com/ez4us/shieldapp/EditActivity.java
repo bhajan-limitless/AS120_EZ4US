@@ -167,8 +167,9 @@ public class EditActivity extends AppCompatActivity {
                 double longi = intent.getDoubleExtra("Longitude",0f);
 
                 String lat1 = Double.toString(lat);
-
                 String long1 = Double.toString(longi);
+
+
 
 
 
