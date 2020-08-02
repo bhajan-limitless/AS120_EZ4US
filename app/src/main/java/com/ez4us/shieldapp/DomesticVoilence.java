@@ -105,15 +105,6 @@ public class DomesticVoilence extends AppCompatActivity {
 
         btnRecord = findViewById(R.id.audio_record);
         btnStop = findViewById(R.id.audio_stop);
-        btnPdf = findViewById(R.id.domesticPDF);
-
-        //-----------------------------OPEN PDF Domestic---------------------------------------------------------------
-        btnPdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DomesticVoilence.this, Domesticpdf.class ));
-            }
-        });
 
         // Intitalize variables
         btnStop.setEnabled(false);
@@ -278,7 +269,6 @@ public class DomesticVoilence extends AppCompatActivity {
         }
 
     }
-
 
     public boolean checkPermission() {
         int result = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
