@@ -127,7 +127,6 @@
 
     </LinearLayout>
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavPol"
         android:layout_width="match_parent"
