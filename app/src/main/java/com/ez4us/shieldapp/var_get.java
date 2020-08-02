@@ -1,10 +1,13 @@
 package com.ez4us.shieldapp;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -75,23 +78,14 @@ public class var_get extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_var_get);
 //------------------------------------------------------Location----------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            //REQUEST PERMISSION SINCE PERMISSION IS NOT GRANTED
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        else{
+            startService();
+        }
 
 
 
@@ -214,6 +208,37 @@ public class var_get extends AppCompatActivity{
 
     }
 
+
+    void startService() {
+        LocationBroadcastReciver reciver = new LocationBroadcastReciver();
+        IntentFilter filter = new IntentFilter("act_location");
+        registerReceiver(reciver, filter);
+        Intent intent = new Intent(var_get.this, LocationService.class);
+        startService(intent);
+    }
+
+    public class LocationBroadcastReciver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("act_location")){
+                double lat = intent.getDoubleExtra("Latitude",0f);
+
+                double longi = intent.getDoubleExtra("Longitude",0f);
+
+                String lat1 = Double.toString(lat);
+
+                String long1 = Double.toString(longi);
+
+                v3= lat1;
+                v4= long1;
+
+                Toast.makeText(var_get.this,"THis is it" + v3+","+v4, LENGTH_LONG).show();
+
+            }
+
+        }
+    }
 
 
 
