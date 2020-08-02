@@ -7,14 +7,10 @@
     android:orientation="vertical"
     tools:context=".PoliceMainActivity">
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World Again"/>
-
-
+        android:text="Hello World"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -24,7 +20,8 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/police_menu"
-        android:layout_alignParentBottom="true"/>
-    
-    
+        android:layout_alignParentBottom="true"
+        />
+
+
 </RelativeLayout>
