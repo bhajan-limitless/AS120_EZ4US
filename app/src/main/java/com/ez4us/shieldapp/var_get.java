@@ -109,7 +109,6 @@ public class var_get extends AppCompatActivity{
         link_save= findViewById(R.id.go_to_link);
 
 
-        final TextView linkTextView = findViewById(R.id.puranjanTextView);
 
 
         if (getIntent().hasExtra("category")) {
@@ -185,7 +184,7 @@ public class var_get extends AppCompatActivity{
                    isSheSafe();
                }
                else{
-                   Toast.makeText(var_get.this,"You need to select \" I Will Help \" to mark the person safe", LENGTH_LONG).show();
+                   Toast.makeText(var_get.this,"You need to select \" I Will Help Button \" to mark the person safe", LENGTH_LONG).show();
                }
            }
        });
@@ -282,7 +281,7 @@ public class var_get extends AppCompatActivity{
                 .Builder(var_get.this);
         builder.setMessage("Do you confirm that she is safe now?");  // Set the message show for the Alert time
         // Set Alert Title
-        builder.setTitle("Exit");
+        builder.setTitle("Safe?");
         builder.setCancelable(false);
         builder
                 .setPositiveButton(

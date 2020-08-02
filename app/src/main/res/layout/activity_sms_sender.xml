@@ -22,35 +22,35 @@
             android:layout_marginTop="30dp"/>
 
         <EditText
-            android:layout_marginTop="165dp"
             android:id="@+id/editTextNumber"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="165dp"
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="@string/_7983105956"
+
             tools:targetApi="o" />
 
         <EditText
-            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber2"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:hint="Mobile Number"
             android:inputType="number"
             android:padding="10dp"
-            android:text="@string/_8630199070"
+
             tools:targetApi="o" />
 
         <EditText
-            android:layout_marginTop="15dp"
             android:id="@+id/editTextNumber3"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:autofillHints=""
             android:hint="Mobile Number"
             android:inputType="number"
-            android:text="@string/_8630199070"
+
             tools:targetApi="o" />
 
         <EditText
