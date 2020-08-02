@@ -440,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Handle sucessful uploads
-                        Toast.makeText(MainActivity.this, "Image Uploaded", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Uploaded", Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
