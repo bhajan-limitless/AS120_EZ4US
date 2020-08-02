@@ -7,12 +7,6 @@
     android:gravity="center_horizontal"
     tools:context="com.ez4us.shieldapp.LoginActivity">
 
-    <Button
-        android:id="@+id/police"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Police" />
-
     <EditText
         android:id="@+id/editTextQ"
         android:layout_width="300dp"
@@ -66,6 +60,18 @@
         android:layout_height="wrap_content"
         android:text="______________________________________"
         android:textSize="17sp"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+        android:id="@+id/police"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:background="@null"
+        android:textAllCaps="false"
+        android:text="Have Authorised credentials ?" />
 
     <TextView
         android:layout_marginTop="40dp"
