@@ -9,6 +9,16 @@
     tools:context="com.ez4us.shieldapp.var_get">
 
 
+    <Button
+        android:id="@+id/var_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_corners"
+        android:text="GO back"
+        android:textColor="#fff" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="391dp"
@@ -201,35 +211,25 @@ android:layout_marginStart="15dp"
     </LinearLayout>
 
     <TextView
+        android:id="@+id/just_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:text="Click on the Link Below to Get the Current Location:"
-        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="16sp"
-        android:layout_margin="20dp"/>
+        android:textStyle="bold" />
 
     <Button
+        android:id="@+id/go_to_link"
         android:layout_width="372dp"
         android:layout_height="40dp"
-        android:text="Get Current Location"
-        android:textSize="10dp"
-        android:id="@+id/go_to_link"
-android:background="@color/quantum_googgreen700"
-        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:autoLink="web"
-        android:layout_gravity="center_horizontal"/>
-
-    <Button
-        android:id="@+id/var_btn"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_centerInParent="true"
-        android:layout_margin="20dp"
         android:background="@drawable/rounded_corners"
+        android:text="Get Current Location"
         android:textColor="#fff"
-        android:text="GO back"
-        />
+        android:textSize="10dp" />
 
 </LinearLayout>
