@@ -3,6 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ez4us.shieldapp">
 
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".PoliceMainActivity"></activity>
+        <activity android:name=".PoliceLoginActivity" />
+        <activity android:name=".Domesticpdf" />
+        <activity android:name=".var_get" />
+        <activity android:name=".EditActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".DomesticVoilence" />
+        <activity android:name=".SMSsender" />
+        <activity android:name=".ForgotActivity" />
+        <activity android:name=".reportbutton" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".CasesReport" />
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher_background" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".LocationService" />
+    </application>
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,54 +60,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.ez4us.shieldapp.Domesticpdf"></activity>
-        <activity android:name="com.ez4us.shieldapp.var_get" />
-        <activity android:name="com.ez4us.shieldapp.EditActivity" />
-        <activity android:name="com.ez4us.shieldapp.ProfileActivity" />
-        <activity android:name="com.ez4us.shieldapp.DomesticVoilence" />
-        <activity android:name="com.ez4us.shieldapp.SMSsender" />
-        <activity android:name="com.ez4us.shieldapp.ForgotActivity" />
-        <activity android:name="com.ez4us.shieldapp.reportbutton" />
-        <activity android:name="com.ez4us.shieldapp.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.ez4us.shieldapp.SignupActivity" />
-        <activity android:name="com.ez4us.shieldapp.CasesReport" />
-        <activity android:name="com.ez4us.shieldapp.MainActivity" />
-
-        <service
-            android:name="com.ez4us.shieldapp.MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_launcher_background" />
-        <!--
- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more.
-        -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
-
-        <service android:name="com.ez4us.shieldapp.LocationService" />
-    </application>
 
 </manifest>

@@ -79,6 +79,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    int sendNotificationTemp=0;
     // Date and Time
     Calendar c = Calendar.getInstance();
     SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
@@ -298,6 +299,15 @@ public class MainActivity extends AppCompatActivity {
                 v2 = strlongitude;
                 String link = "www.google.com/maps/search/?api=1&query=" + strlat + "," + strlongitude;
                 smslink = link;
+
+                if (sendNotificationTemp==1) {
+                    String UniqueID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    UniqueID = UniqueID.concat(datetime);
+                    DatabaseReference safeRef = FirebaseDatabase.getInstance().getReference().child("inDanger").child(UniqueID);
+                    safeRef.child("latt1").setValue(v1);
+                    safeRef.child("long1").setValue(v2);
+                }
+
             }
         }
     }
@@ -601,14 +611,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendnotification() {
+        sendNotificationTemp=1;
         String UniqueID=FirebaseAuth.getInstance().getCurrentUser().getUid();
-        String titleNotification;
 
         UniqueID=UniqueID.concat(datetime);
         DatabaseReference safeRef=FirebaseDatabase.getInstance().getReference().child("inDanger").child(UniqueID);
         safeRef.child("Safe").setValue("0");
-        safeRef.child("latt1").setValue(v1);
-        safeRef.child("long1").setValue(v2);
 
         JSONObject json = new JSONObject();
         try {
