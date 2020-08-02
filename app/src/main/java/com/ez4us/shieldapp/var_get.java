@@ -335,7 +335,7 @@ public class var_get extends AppCompatActivity{
         AlertDialog.Builder builder // Create the object of AlertDialog Builder class
                 = new AlertDialog
                 .Builder(var_get.this);
-        builder.setMessage("Do you confirm that she is safe now?");  // Set the message show for the Alert time
+        builder.setMessage("Do you want to exit?");  // Set the message show for the Alert time
         // Set Alert Title
         builder.setTitle("Exit");
         builder.setCancelable(false);
