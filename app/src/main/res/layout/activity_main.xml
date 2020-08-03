@@ -32,6 +32,18 @@
             android:textColor="#fff"
             android:textSize="35dp" />
 
+        <Button
+            android:textSize="17sp"
+            android:id="@+id/callBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:text="SOS Call"
+            android:layout_marginBottom="20dp"
+            android:onClick="onDialButton"
+            android:textColor="#fff"
+            tools:ignore="OnClick" />
+
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -43,5 +55,6 @@
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_nav"
         android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>
