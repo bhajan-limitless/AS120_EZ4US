@@ -42,7 +42,7 @@
                 android:layout_alignTop="@+id/categoryET"
                 android:layout_alignRight="@+id/categoryET"
                 android:layout_alignBottom="@+id/categoryET"
-                android:src="@mipmap/baseline_arrow_drop_down_black_24" />
+                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
         </RelativeLayout>
 
         <EditText
