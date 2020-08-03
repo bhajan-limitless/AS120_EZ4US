@@ -36,14 +36,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String smslink = extraData.get("link");
 
         alarmingsound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, "TAC")
                         .setContentTitle(title)
                         .setContentText(body)
-                        .setSmallIcon(R.drawable.ic_launcher_background);
-        notificationBuilder.setSound(alarmingsound);
-        notificationBuilder.setVibrate(pattern);
-                        //.setLights(Color.YELLOW, 200,200);
+                        .setSmallIcon(R.drawable.ic_launcher_background)
+                        .setSound(alarmingsound)
+                        .setVibrate(pattern);
+
 
         Intent intent;
         if (category.equals("shoes")) {
