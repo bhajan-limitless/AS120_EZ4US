@@ -10,4 +10,77 @@
     <string name="type_the_number2">Type the number2</string>
     <string name="_8630199070">8630199070</string>
     <string name="contacts_edit">contacts edit</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="have_authorised_credentials">Have Authorised credentials ?</string>
+    <string name="create_new_Shield_Acct">Create New Shield Account!</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_acct">Already have an account?  Sign in here</string>
+    <string name="sos">SOS</string>
+    <string name="category">Category</string>
+    <string name="reason">Reason</string>
+    <string name="audio_recording">Audio Recording</string>
+    <string name="record_audio">Record Audio</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="video_recording">Video Recording</string>
+    <string name="record_video">Record Video</string>
+    <string name="submit">Submit</string>
+    <string name="full_name">Full Name</string>
+    <string name="age">Age</string>
+    <string name="phone">Phone</string>
+    <string name="profession">Profession</string>
+    <string name="workplace">Workplace</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="send_recent_link">Send Reset Link</string>
+    <string name="milan_kandwal">Milan Kandwal</string>
+    <string name="puranjan_prithu">Puranjan_prithu</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="bhajan_singh_kandari">Bhajan Singh Kandari</string>
+    <string name="mukesh_bhahuguna">Mukesh Bhahuguna</string>
+    <string name="name">Name</string>
+    <string name="unique_id">Unique ID</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="occupation">Occupation</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="emergency_contact">Emergency Contacts</string>
+    <string name="mobile_no">Mobile Number</string>
+    <string name="save_contact">Save Contacts</string>
+    <string name="go_back">GO back</string>
+    <string name="will_help">Will Help :</string>
+    <string name="said_safe">Said Safe :</string>
+    <string name="number">Number</string>
+    <string name="i_will_help">I will Help</string>
+    <string name="mark_safe">Mark Safe</string>
+    <string name="distance_between_you">Distance Between You and Victim</string>
+    <string name="click_on_the_link_below">Click on the Link Below to Get the Current Location:</string>
+    <string name="get_current_location">Get Current Location</string>
+    <string name="emergency_number">Emergency Numbers</string>
+    <string name="violence_harassment">Violence | Harassment</string>
+    <string name="home">Home</string>
+    <string name="report_Complain">Report Complain</string>
+    <string name="my_profile">My Profile</string>
+    <string name="trafficking_reports">Trafficking Reports</string>
+    <string name="harassment_violence_reports">Harassment/Violence Reports</string>
+    <string name="work_place_harassment">Work place harassment</string>
+    <string name="location">Location</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="sexual_harassment">Sexual Harassment</string>
+    <string name="domestic_voilence">Domestic Violence</string>
+    <string name="state">State</string>
+    <string name="district">District</string>
+    <string name="location_address">Location Address</string>
+    <string name="pincode">Pincode</string>
+    <string name="report">Report</string>
+    <string name="check_reported_data">Check Reported Data</string>
+    <string name="cases">Cases</string>
+    <string name="change_language">Change Language</string>
+    <string-array name="problem">
+    <item>Child Trafficking</item>
+    <item>Domestic Violence</item>
+    <item>Sexual Harassment</item>
+    <item>Workplace Harassment</item>
+    </string-array>
 </resources>

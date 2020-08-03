@@ -15,7 +15,7 @@
         android:background="@drawable/betteredittext"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textSize="18dp" />
@@ -30,7 +30,7 @@
         android:layout_height="45dp"
         android:ems="10"
         android:textSize="18dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"/>
 
     <Button
@@ -42,14 +42,14 @@
         android:textAllCaps="false"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="Sign In"/>
+        android:text="@string/sign_in"/>
 
     <TextView
         android:layout_marginTop="20dp"
         android:id="@+id/sendlinkQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="@string/forget_password"
         android:textStyle="bold"
         android:textSize="17dp"
         android:textColor="#1565c0"/>
@@ -71,17 +71,28 @@
         android:textStyle="bold"
         android:background="@null"
         android:textAllCaps="false"
-        android:text="Have Authorised credentials ?" />
+        android:text="@string/have_authorised_credentials" />
 
     <TextView
         android:layout_marginTop="40dp"
         android:id="@+id/textViewQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create New Shield Account!"
+        android:text="@string/create_new_Shield_Acct"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="17sp"/>
 
+
+    <Button
+        android:layout_marginTop="25dp"
+        android:id="@+id/buttonLang"
+        android:background="@drawable/rounded_corners"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="@string/change_language"/>
 
 </LinearLayout>

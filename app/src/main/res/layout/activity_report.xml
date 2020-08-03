@@ -18,7 +18,7 @@
         android:ems="10"
         android:gravity="center_vertical"
         android:inputType="textCapWords"
-        android:hint="State" />
+        android:hint="@string/state" />
 
 
     <EditText
@@ -32,7 +32,7 @@
         android:layout_marginBottom="35dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="District"/>
+        android:hint="@string/district"/>
 
     <EditText
         android:background="@drawable/betteredittext"
@@ -45,7 +45,7 @@
         android:layout_marginBottom="35dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="Location Address" />
+        android:hint="@string/location_address" />
 
     <EditText
         android:background="@drawable/betteredittext"
@@ -58,7 +58,7 @@
         android:layout_marginBottom="35dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="Pincode"
+        android:hint="@string/pincode"
         android:inputType="phone"/>
 
     <EditText
@@ -72,14 +72,14 @@
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="Reason "
+        android:hint="@string/reason"
         android:inputType="text"/>
 
     <Button
         android:id="@+id/repBTN"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="Report"
+        android:text="@string/report"
         android:textSize="15sp"
         android:textAllCaps="false"
         android:layout_centerInParent="true"
@@ -90,7 +90,7 @@
         android:id="@+id/extFAbtn"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="Check Reported Data"
+        android:text="@string/check_reported_data"
         android:textSize="15sp"
         android:textAllCaps="false"
         android:layout_centerInParent="true"

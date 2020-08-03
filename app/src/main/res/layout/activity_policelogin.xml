@@ -16,7 +16,7 @@
         android:background="@drawable/betteredittext"
         android:ems="10"
         android:gravity="center_vertical"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textSize="18dp" />
@@ -31,7 +31,7 @@
         android:layout_height="45dp"
         android:ems="10"
         android:textSize="18dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"/>
 
     <Button
@@ -43,5 +43,5 @@
         android:textAllCaps="false"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="Sign In"/>
+        android:text="@string/sign_in"/>
 </LinearLayout>
