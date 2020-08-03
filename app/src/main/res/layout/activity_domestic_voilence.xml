@@ -7,7 +7,7 @@
     tools:context="com.ez4us.shieldapp.DomesticVoilence">
 
     <LinearLayout
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="55dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
@@ -26,6 +26,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
         <AutoCompleteTextView
             android:id="@+id/categoryET"
             android:layout_margin="10dp"
@@ -34,6 +35,7 @@
             android:background="@drawable/betteredittext"
             android:layout_centerHorizontal="true"
             android:hint="@string/category"/>
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,20 +45,22 @@
                 android:layout_alignRight="@+id/categoryET"
                 android:layout_alignBottom="@+id/categoryET"
                 android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
         </RelativeLayout>
 
         <EditText
+
             android:id="@+id/reasonET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
-            android:layout_height="80dp"
+            android:layout_height="120dp"
             android:background="@drawable/betteredittext"
             android:hint="@string/reason"
             android:inputType="textMultiLine"/>
 
 
         <Button
-            android:layout_margin="20dp"
+            android:layout_marginTop="150dp"
             android:textColor="#ffffff"
             android:background="@drawable/rounded_corners"
             android:id="@+id/video_record"
@@ -69,7 +73,7 @@
             tools:ignore="OnClick" />
 
         <Button
-            android:layout_margin="20dp"
+            android:layout_margin="30dp"
             android:textColor="#ffffff"
             android:background="@drawable/rounded_corners"
             android:id="@+id/submit_report"
