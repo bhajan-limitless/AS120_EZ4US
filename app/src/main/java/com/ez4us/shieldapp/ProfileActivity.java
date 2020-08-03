@@ -146,7 +146,7 @@ public class ProfileActivity extends AppCompatActivity {
                 nameTxt.setText(name);
                 phoneTxt.setText(phone);
                 occupationTxt.setText(profession);
-                linkTxt.setText(age);
+                linkTxt.setText(age+" Years");
                 workplaceTxt.setText(workplace);
                 uniqueidTxt.setText(UniqueID);
 
@@ -181,6 +181,5 @@ public class ProfileActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -22,7 +22,14 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp" />
         <ImageView
 
             android:id="@+id/user_imageview"
@@ -32,13 +39,7 @@
             app:srcCompat="@drawable/ic_baseline_account_circle_24"
             android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:id="@+id/name_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:textAlignment="textEnd"
-            android:textSize="18sp" />
+
 
     </LinearLayout>
 
@@ -47,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Unique ID"
-            android:textSize="18sp" />
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/later_textview"
@@ -180,7 +181,8 @@
             android:id="@+id/edit"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_margin="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_corners"
             android:textAllCaps="false"
             android:text="Edit Profile"

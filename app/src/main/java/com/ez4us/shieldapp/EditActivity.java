@@ -47,10 +47,12 @@ import static android.widget.Toast.LENGTH_LONG;
 public class EditActivity extends AppCompatActivity {
     private EditText nameEditText, professionEditText, workEditText, ageEditText;
     String name;
+
     private EditText phoneEditText, emailEditText;
     private Button registerButton;
     String UniqueID;
 
+    int locationTemp=1;
     String downloadPicUrl;
     private ImageView profilePic;
     private Uri imageUri;
@@ -127,20 +129,29 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get All Values
-                fname = nameEditText.getText().toString();
+                fname = nameEditText.getText().toString().trim();
                 email = emailEditText.getText().toString();
                 phone = phoneEditText.getText().toString();
                 profession = professionEditText.getText().toString();
                 workplace = workEditText.getText().toString();
                 age=ageEditText.getText().toString();
                 profilePicUri="";
+                if(fname.isEmpty()) {
+                    nameEditText.setError("Provide Name");
+                    nameEditText.requestFocus();
+                }
+                else if(age.isEmpty()){
+                    ageEditText.setError("Provide Age");
+                    ageEditText.requestFocus();
+                }
+                else{
+                    UserHelperClass helperClass = new UserHelperClass(fname, profilePicUri, profession, workplace, age, phone, email);
+                    reference.child(UniqueID).setValue(helperClass);//creates a child with Unique id
+                    Toast.makeText(EditActivity.this, "Saved!",Toast.LENGTH_SHORT).show();
+                    Intent ii=new Intent(EditActivity.this,ProfileActivity.class);
+                    startActivity(ii);
+                }
 
-                UserHelperClass helperClass=new UserHelperClass(fname,profilePicUri,profession, workplace,age,phone,email);
-                reference.child(UniqueID).setValue(helperClass);//creates a child with Unique id
-
-                Toast.makeText(EditActivity.this, "Saved!",Toast.LENGTH_SHORT).show();
-                Intent ii=new Intent(EditActivity.this,ProfileActivity.class);
-                startActivity(ii);
             }
         });
 
@@ -162,15 +173,30 @@ public class EditActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("act_location")){
-                double lat = intent.getDoubleExtra("Latitude",0f);
 
+                double lat = intent.getDoubleExtra("Latitude",0f);
                 double longi = intent.getDoubleExtra("Longitude",0f);
 
-                String lat1 = Double.toString(lat);
-                String long1 = Double.toString(longi);
+                final String lat1 = Double.toString(lat);
+                final String long1 = Double.toString(longi);
 
+                DatabaseReference ref1= FirebaseDatabase.getInstance().getReference().child("Users").child(UniqueID);
+                final DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("Users").child(UniqueID).child("coordinates");
+                ref1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!(snapshot.hasChild("coordinates"))&&locationTemp==1){
+                            locationTemp=0;
+                            ref.child("Lattitude").setValue(lat1);
+                            ref.child("Longitude").setValue(long1);
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
+                    }
+                });
 
 
             }
@@ -192,35 +218,41 @@ public class EditActivity extends AppCompatActivity {
         mAuth= FirebaseAuth.getInstance();
         final String currentUserUid = mAuth.getCurrentUser().getUid();//get the unique id of user
         reference= FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid);
-        reference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference r111=FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserUid);
+
+        r111.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String email=snapshot.child("email").getValue().toString();
-                String name=snapshot.child("name").getValue().toString();
-                String phone=snapshot.child("phone").getValue().toString();
-                String profession=snapshot.child("profession").getValue().toString();
-                String age=snapshot.child("age").getValue().toString();
-                String workplace=snapshot.child("workplace").getValue().toString();
+                if (!(snapshot.hasChild("name"))){
+                    UserHelperClass helperClass = new UserHelperClass("", "", "", "", "", "", "");
+                    reference.child(UniqueID).setValue(helperClass);//creates a child with Unique id
+                    Toast.makeText(EditActivity.this, "Please Complete Your Profile", LENGTH_LONG).show();
+                }
+                else {
+                    String email=snapshot.child("email").getValue().toString();
+                    String name=snapshot.child("name").getValue().toString();
+                    String phone=snapshot.child("phone").getValue().toString();
+                    String profession=snapshot.child("profession").getValue().toString();
+                    String age=snapshot.child("age").getValue().toString();
+                    String workplace=snapshot.child("workplace").getValue().toString();
 
-                //String photoLink=snapshot.child("profilePhoto").getValue().toString();
-                //Picasso.get().load(photoLink).into(profilePic);
-                //String profilePicture=snapshot.child("profilePic").getValue().toString(); //-----------------Fetched profile pic id from real time database
-                fetchImage();
+                    fetchImage();
 
 
-                emailEditText.setText(email);
-                nameEditText.setText(name);
-                phoneEditText.setText(phone);
-                professionEditText.setText(profession);
-                ageEditText.setText(age);
-                workEditText.setText(workplace);
+                    emailEditText.setText(email);
+                    nameEditText.setText(name);
+                    phoneEditText.setText(phone);
+                    professionEditText.setText(profession);
+                    ageEditText.setText(age);
+                    workEditText.setText(workplace);
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
     }
 
     @Override
