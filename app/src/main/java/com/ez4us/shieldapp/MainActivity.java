@@ -203,20 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRequestQue = Volley.newRequestQueue(this);
 
-
-
-
-
-
-
-
-
-
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-
-
-
-
 
 
         notifybtn = (Button) findViewById(R.id.smsandnotificationbutton);
@@ -288,7 +275,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 
     // Creating a method to start the location service
@@ -392,6 +378,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Failed to create directory, Please try again", Toast.LENGTH_LONG).show();
                 }
             }
+
             // -----------> File Creation <--------------
 
             file = new File(getCacheDir()+"/shieldapp/images/testing.jpg");
@@ -470,7 +457,7 @@ public class MainActivity extends AppCompatActivity {
         storageReference  = FirebaseStorage.getInstance().getReference();
 
         Uri upfile = Uri.fromFile(file);
-        StorageReference riversRef = storageReference.child("Reports/trafficking/"+UniqueID+"/"+date+"/Images/"+datetime+".jpg");
+        StorageReference riversRef = storageReference.child("Reports/Traffacking/"+UniqueID+"/"+date+"/Images/"+datetime+".jpg");
 
         riversRef.putFile(upfile)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

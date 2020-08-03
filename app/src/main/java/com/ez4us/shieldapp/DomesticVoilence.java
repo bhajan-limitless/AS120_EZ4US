@@ -147,48 +147,6 @@ public class DomesticVoilence extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // ---------------------------------> uploading to firebase <--------------------------------------------------
-
-                final ProgressDialog progressDialog = new ProgressDialog(DomesticVoilence.this);
-                progressDialog.setTitle("Uploading");
-                progressDialog.show();
-
-                FirebaseAuth mAuth;
-                mAuth = FirebaseAuth.getInstance();
-                final String UniqueID = mAuth.getCurrentUser().getUid();
-
-                StorageReference storageReference;
-                storageReference  = FirebaseStorage.getInstance().getReference();
-
-                Uri upfile = Uri.fromFile(new File(audiofile));
-                StorageReference riversRef = storageReference.child("Reports/Domestic/"+UniqueID+"/"+date+"/Audios/"+datetime+".3gp");
-
-                riversRef.putFile(upfile)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                // Handle sucessful uploads
-                                progressDialog.dismiss();
-                                Toast.makeText(DomesticVoilence.this, "Audio Uploaded", Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                // Handle unsuccessful uploads
-                                progressDialog.dismiss();
-                                Toast.makeText(DomesticVoilence.this, "No Audio Recorded", Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-
-
-                                progressDialog.setMessage("Uploading... ");
-                            }
-                        });
-
             //-------------------------------------> Report file upload <-----------------------------------------
 
                 String catET = category.getText().toString().trim().toUpperCase();
@@ -229,6 +187,45 @@ public class DomesticVoilence extends AppCompatActivity {
             Uri myvideo = data.getData();
             Toast.makeText(this, "Video saved succesfully", Toast.LENGTH_SHORT).show();
 
+            // ---------------------------------> uploading to firebase <--------------------------------------------------
+
+            final ProgressDialog progressDialog = new ProgressDialog(DomesticVoilence.this);
+            progressDialog.setTitle("Uploading");
+            progressDialog.show();
+
+            FirebaseAuth mAuth;
+            mAuth = FirebaseAuth.getInstance();
+            final String UniqueID = mAuth.getCurrentUser().getUid();
+
+            StorageReference storageReference;
+            storageReference  = FirebaseStorage.getInstance().getReference();
+
+            StorageReference riversRef = storageReference.child("Reports/Domestic/"+UniqueID+"/"+date+"/Videos/"+datetime+".mp4");
+
+            riversRef.putFile(myvideo)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // Handle sucessful uploads
+                            progressDialog.dismiss();
+                            Toast.makeText(DomesticVoilence.this, "Video uploaded", Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle unsuccessful uploads
+                            progressDialog.dismiss();
+                            Toast.makeText(DomesticVoilence.this, "Error", Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+
+                            progressDialog.setMessage("Uploading... ");
+                        }
+                    });
         }
 
     }
