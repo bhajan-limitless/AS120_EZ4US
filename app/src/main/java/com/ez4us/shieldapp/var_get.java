@@ -212,6 +212,8 @@ public class var_get extends AppCompatActivity{
                     //Toast.makeText(var_get.this,"THis is it" + v3+","+v4, LENGTH_LONG).show();
 
                 }
+
+                fetchCoordinatesOfGirl();
             }
 
         }
