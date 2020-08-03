@@ -4,6 +4,9 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -16,6 +19,9 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.Map;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    private static Uri alarmingsound;
+    private final long[] pattern ={100, 300, 300 ,300};
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
@@ -29,11 +35,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String category = extraData.get("category");
         String smslink = extraData.get("link");
 
+        alarmingsound= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, "TAC")
                         .setContentTitle(title)
                         .setContentText(body)
                         .setSmallIcon(R.drawable.ic_launcher_background);
+        notificationBuilder.setSound(alarmingsound);
+        notificationBuilder.setVibrate(pattern);
+                        //.setLights(Color.YELLOW, 200,200);
 
         Intent intent;
         if (category.equals("shoes")) {
