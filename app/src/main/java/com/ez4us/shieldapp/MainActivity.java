@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
     SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
     String date = dateformat.format(c.getTime());
 
+    Button dial;
+
 
     //initializing a button for emergency contacts
     Button button;
@@ -145,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dial = findViewById(R.id.callBtn);
 
         // --------> Folder Creation <--------------
         File root = new File(getCacheDir()+"/shieldapp/images");
@@ -269,6 +273,23 @@ public class MainActivity extends AppCompatActivity {
             startService();
         }
     }
+
+    //-----------------------------------------------CALL--------------------------------------------------------
+    public void onDialButton(View v){
+        Intent intent =  new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:8126568652"));
+        if(checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+        {
+            //REQUEST PERMISSION SINCE PERMISSION IS NOT GRANTED
+            requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, 1);
+        }
+        else{
+            startActivity(intent);
+        }
+
+    }
+
+
 
     // Creating a method to start the location service
     void startService() {
