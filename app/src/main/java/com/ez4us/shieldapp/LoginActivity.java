@@ -23,6 +23,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Locale;
 
@@ -30,10 +35,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
     Button btnSignIn,police;
     TextView tvSignUp, forgotpass;
-    FirebaseAuth mFirebaseAuth;
+
     Button changeLang;
 
-
+    FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         actionBar.setTitle(getResources().getString(R.string.app_name));
         //--------------------------------------------
 
-        mFirebaseAuth= FirebaseAuth.getInstance();
+
         emailId=findViewById(R.id.editTextQ);
         password=findViewById(R.id.editText2Q);
         btnSignIn=findViewById(R.id.buttonQ);
@@ -55,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         police=findViewById(R.id.police);
         changeLang=findViewById(R.id.buttonLang);
 
+        mFirebaseAuth= FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -70,8 +76,53 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
-                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(i);
+
+                        final String uniquePoliceId=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        DatabaseReference UserId= FirebaseDatabase.getInstance().getReference().child("Users");
+                        final DatabaseReference policeUsers= FirebaseDatabase.getInstance().getReference().child("Users").child(uniquePoliceId);
+
+                        UserId.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild("police")){
+                                policeUsers.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        String state = snapshot.child("state").getValue().toString();
+                                        String district = snapshot.child("district").getValue().toString();
+                                        String area = snapshot.child("area").getValue().toString();
+
+
+                                        DatabaseReference pl = FirebaseDatabase.getInstance().getReference().child(state).child(district).child(area);
+                                        if (snapshot.hasChild(uniquePoliceId)){
+                                            Intent i = new Intent(LoginActivity.this, PoliceGeneralActivity.class);
+                                            startActivity(i);
+
+                                        }
+                                        else{
+                                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(i);
+                                        }
+
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }else {
+                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(i);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
                     }
                 }

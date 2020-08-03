@@ -8,6 +8,7 @@
     tools:context=".PoliceMainActivity">
 
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -110,16 +111,23 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/sos"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:text="Log Out"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_corners"
-            android:layout_marginTop="75dp"/>
+            android:id="@+id/logoutPolice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Out" />
+
+        <Button
+            android:id="@+id/gaaa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="General Use" />
+
 
     </LinearLayout>
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavPol"

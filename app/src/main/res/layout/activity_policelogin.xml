@@ -8,13 +8,68 @@
     android:gravity="center_horizontal"
     tools:context=".PoliceLoginActivity">
 
+
+    <TextView
+        android:id="@+id/later_textview"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:text="POLICE DEPARTMENT"
+        android:textStyle="bold"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/state_police"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/betteredittext"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="State"
+        android:text="Uttarakhand"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/district_police"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/betteredittext"
+        android:ems="10"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:hint="District"
+        android:text="Dehradun"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/area_police"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:background="@drawable/betteredittext"
+        android:ems="10"
+        android:layout_marginTop="25dp"
+        android:text="Patel Nagar"
+        android:gravity="center_vertical"
+        android:hint="Area"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textSize="18dp" />
+
+
+
+
     <EditText
         android:id="@+id/user_police"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginTop="100dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
+        android:layout_marginTop="25dp"
         android:gravity="center_vertical"
         android:hint="@string/email"
         android:inputType="textPersonName"
@@ -44,4 +99,6 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:text="@string/sign_in"/>
+
+
 </LinearLayout>

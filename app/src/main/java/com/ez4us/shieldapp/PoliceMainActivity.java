@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class PoliceMainActivity extends AppCompatActivity {
 
-    Button trafik,domestic,sos;
+    Button trafik,domestic,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,16 +46,32 @@ public class PoliceMainActivity extends AppCompatActivity {
         });
 //..............................navigation....................................................
 
-        sos=findViewById(R.id.sos);
-        sos.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+        //...................................................sign out.................................
+        logout=findViewById(R.id.logoutPolice);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent ii=new Intent(PoliceMainActivity.this,LoginActivity.class);
-                startActivity(ii);
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intToMain = new Intent(PoliceMainActivity.this, PoliceLoginActivity.class);
+                startActivity(intToMain);
             }
         });
+        //.............................................................................................
 
-
+Button gaa=findViewById(R.id.gaaa);
+gaa.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(PoliceMainActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+});
 
 
 
