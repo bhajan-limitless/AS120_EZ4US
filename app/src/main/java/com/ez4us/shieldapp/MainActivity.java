@@ -197,7 +197,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mRequestQue = Volley.newRequestQueue(this);
+
+
+
+
+
+
+
+
+
+
         FirebaseMessaging.getInstance().subscribeToTopic("news");
+
+
+
+
+
 
         notifybtn = (Button) findViewById(R.id.smsandnotificationbutton);
         notifybtn.setOnClickListener(new View.OnClickListener() {
