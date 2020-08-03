@@ -64,15 +64,6 @@ public class PoliceMainActivity extends AppCompatActivity {
         });
         //.............................................................................................
 
-Button gaa=findViewById(R.id.gaaa);
-gaa.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent i = new Intent(PoliceMainActivity.this, MainActivity.class);
-        startActivity(i);
-    }
-});
-
 
 
 

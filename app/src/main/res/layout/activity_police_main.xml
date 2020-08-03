@@ -116,13 +116,6 @@
             android:layout_height="wrap_content"
             android:text="Log Out" />
 
-        <Button
-            android:id="@+id/gaaa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="General Use" />
-
-
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
