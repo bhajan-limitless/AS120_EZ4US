@@ -111,10 +111,10 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/sos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SOS database" />
+            android:text="Log Out" />
 
 
     </LinearLayout>
