@@ -471,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         // Handle unsuccessful uploads
-                        Toast.makeText(MainActivity.this, "Image upload Error , Please try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Completed", Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -636,7 +636,7 @@ public class MainActivity extends AppCompatActivity {
                                 for (String string : arrayList) {
                                     smsManager.sendTextMessage(string, null, message + " " + smslink, null, null);
                                 }
-                                Toast.makeText(MainActivity.this, "sent", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "saved", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 ArrayList<String> arrayList = new ArrayList<String>();
