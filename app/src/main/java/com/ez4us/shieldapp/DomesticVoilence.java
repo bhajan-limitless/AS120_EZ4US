@@ -247,7 +247,8 @@ public class DomesticVoilence extends AppCompatActivity {
                 String resET = reason.getText().toString().trim();
                 databaseReference.child(catET).child(UniqueID).child(datetime).setValue(resET);
                 Toast.makeText(DomesticVoilence.this, "File Reported Sucessfully", Toast.LENGTH_SHORT).show();
-
+                category.getText().clear();
+                reason.getText().clear();
 
             }
         });
