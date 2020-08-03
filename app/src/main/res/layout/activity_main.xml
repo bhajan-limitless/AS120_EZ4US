@@ -21,18 +21,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/callBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners"
-            android:text="SOS Call"
-            android:layout_marginBottom="20px"
-            android:onClick="onDialButton"
-            android:textColor="#fff"
-            tools:ignore="OnClick" />
-
-
-        <Button
             android:id="@+id/smsandnotificationbutton"
             android:layout_width="160dp"
             android:layout_height="160dp"
@@ -43,6 +31,18 @@
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="35dp" />
+
+        <Button
+            android:textSize="17sp"
+            android:id="@+id/callBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:text="SOS Call"
+            android:layout_marginBottom="20dp"
+            android:onClick="onDialButton"
+            android:textColor="#fff"
+            tools:ignore="OnClick" />
 
     </LinearLayout>
 
