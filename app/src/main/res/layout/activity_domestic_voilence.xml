@@ -45,11 +45,9 @@
                 android:layout_alignRight="@+id/categoryET"
                 android:layout_alignBottom="@+id/categoryET"
                 android:src="@drawable/ic_baseline_arrow_drop_down_24" />
-
         </RelativeLayout>
 
         <EditText
-
             android:id="@+id/reasonET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
@@ -57,7 +55,6 @@
             android:background="@drawable/betteredittext"
             android:hint="@string/reason"
             android:inputType="textMultiLine"/>
-
 
         <Button
             android:layout_marginTop="150dp"
