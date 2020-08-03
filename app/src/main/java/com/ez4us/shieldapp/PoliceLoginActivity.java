@@ -34,20 +34,21 @@ public class PoliceLoginActivity extends AppCompatActivity {
         String user=username.getText().toString();
         String pwd=password.getText().toString();
 
-        if (user=="admin"&&pwd=="12345"){
+        if (user.equals("admin")&&pwd.equals("12345")){
             Intent ii=new Intent(PoliceLoginActivity.this,PoliceMainActivity.class);
             startActivity(ii);
         }
-        if(user!="admin"){
+        if(!user.equals("admin")){
             username.setError("Username Incorrect");
             username.requestFocus();
         }
-        else if(pwd!="12345"){
+        else if(!pwd.equals("12345")){
             username.setError("Password Incorrect");
             username.requestFocus();
         }
         else{
             Toast.makeText(this,"Please fill the correct username and password",Toast.LENGTH_LONG).show();
+
         }
     }
 }

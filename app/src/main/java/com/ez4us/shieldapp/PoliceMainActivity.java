@@ -18,7 +18,7 @@ public class PoliceMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_police_main);
-
+//..............................navigation....................................................
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavPol);
         bottomNavigationView.setSelectedItemId(R.id.harVolBtn);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,6 +43,25 @@ public class PoliceMainActivity extends AppCompatActivity {
 
             }
         });
+//..............................navigation....................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
