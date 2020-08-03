@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Police_traffickingActivity"></activity>
+        <activity android:name=".PoliceGeneralActivity"></activity>
+        <activity android:name=".Police_traffickingActivity" />
         <activity android:name=".TraffickingDataPolice" />
         <activity android:name=".PoliceMainActivity" />
         <activity android:name=".PoliceLoginActivity" />

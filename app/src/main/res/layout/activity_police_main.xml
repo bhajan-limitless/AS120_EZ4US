@@ -111,10 +111,16 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/sos"
+            android:id="@+id/logoutPolice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log Out" />
+
+        <Button
+            android:id="@+id/gaaa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="General Use" />
 
 
     </LinearLayout>
