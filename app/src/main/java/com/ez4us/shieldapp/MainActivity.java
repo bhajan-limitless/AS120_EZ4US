@@ -57,6 +57,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -437,7 +438,7 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (CameraAccessException e){
             e.printStackTrace();
-        };
+        }
 
         //---------------------------------------------> Upload Image to Firebase ~ milannzz <------------------------------------------------
         FirebaseAuth mAuth;
@@ -693,12 +694,20 @@ public class MainActivity extends AppCompatActivity {
             json.put("data",extraData);
 
 
+            //FirebaseMessaging.getInstance().unsubscribeFromTopic("news");
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL,
                     json,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
 
+                            int d=5;
+                            if (d<7){
+                                FirebaseMessaging.getInstance().subscribeToTopic("news");
+                            }
+                            else{
+                                FirebaseMessaging.getInstance().unsubscribeFromTopic("news");
+                            }
                             Log.d("MUR", "onResponse: ");
                         }
                     }, new Response.ErrorListener() {
