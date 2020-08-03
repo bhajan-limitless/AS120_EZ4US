@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="@string/email"
+        android:hint="Email"
         android:gravity="center_vertical"
         android:padding="10dp"
         android:inputType="textPersonName"/>
@@ -27,20 +27,43 @@
         android:ems="10"
         android:gravity="center_vertical"
         android:padding="10dp"
-        android:hint="@string/password"
+        android:hint="Password"
         android:layout_marginTop="25dp"
         android:inputType="textPassword"/>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:gravity="center_vertical"
+            android:layout_width="42dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/consent"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:text="I consent to share my PROFILE PICTURE, NAME and AGE to other users in case of emergency ."
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp" />
+
+    </LinearLayout>
 
     <Button
-        android:layout_marginTop="25dp"
-        android:textColor="#fff"
-        android:textSize="15sp"
-        android:background="@drawable/rounded_corners"
-        android:textAllCaps="false"
         android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="@string/sign_up" />
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15sp" />
 
     <TextView
         android:layout_marginTop="20dp"
@@ -48,7 +71,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/already_have_an_acct"
+        android:text="Already have an account?  Sign in here"
         android:textColor="@color/colorPrimary"/>
 
 </LinearLayout>

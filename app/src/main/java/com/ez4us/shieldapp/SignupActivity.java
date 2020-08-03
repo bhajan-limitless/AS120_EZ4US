@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,8 @@ public class SignupActivity extends AppCompatActivity {
     Button btnSignUp;
     TextView tvSignIn;
     FirebaseAuth mFirebaseAuth;
+    CheckBox cb;
+    int temp=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +39,20 @@ public class SignupActivity extends AppCompatActivity {
         password=findViewById(R.id.editText2);
         btnSignUp=findViewById(R.id.button);
         tvSignIn=findViewById(R.id.textView);
+        cb=findViewById(R.id.checkBox);
 
-
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (cb.isChecked()){
+                   temp=1;
+                }
+            }
+        });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String email=emailId.getText().toString();
                 String pwd=password.getText().toString();
                 if(email.isEmpty())
@@ -52,6 +63,10 @@ public class SignupActivity extends AppCompatActivity {
                 else if(pwd.isEmpty()){
                     password.setError("Please enter your password");
                     password.requestFocus();
+                }
+                else if (temp==0){
+                    cb.setError("Select the checkbok");
+                    cb.requestFocus();
                 }
                 else if (email.isEmpty() && pwd.isEmpty()){
                     Toast.makeText(SignupActivity.this, "Fields are Empty!",Toast.LENGTH_SHORT).show();

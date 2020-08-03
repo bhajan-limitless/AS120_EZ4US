@@ -22,7 +22,14 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp" />
         <ImageView
 
             android:id="@+id/user_imageview"
@@ -32,13 +39,7 @@
             app:srcCompat="@drawable/ic_baseline_account_circle_24"
             android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:id="@+id/name_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:textAlignment="textEnd"
-            android:textSize="18sp" />
+
 
     </LinearLayout>
 
@@ -46,14 +47,14 @@
             android:id="@+id/uniqueid_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/unique_id"
-            android:textSize="18sp" />
+            android:hint="Unique ID"
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/later_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/unique_id"
+            android:text="Unique ID"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -74,7 +75,7 @@
                 android:id="@+id/link_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/age"
+                android:hint="Age"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -97,7 +98,7 @@
                 android:id="@+id/phone_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/phone_number"
+                android:hint="Phone Number"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -120,7 +121,7 @@
                 android:id="@+id/email_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:hint="Email"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -144,7 +145,7 @@
                 android:id="@+id/occupation_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/occupation"
+                android:hint="Occupation"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -168,7 +169,7 @@
                 android:id="@+id/work_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/workplace"
+                android:hint="Workplace"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -180,10 +181,11 @@
             android:id="@+id/edit"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:layout_margin="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_corners"
             android:textAllCaps="false"
-            android:text="@string/edit_profile"
+            android:text="Edit Profile"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -193,7 +195,7 @@
 
             android:textAllCaps="false"
             android:background="@drawable/rounded_corners"
-            android:text="@string/sign_out"
+            android:text="Sign Out"
             android:textColor="#fff"
             android:textSize="15sp" />
 
