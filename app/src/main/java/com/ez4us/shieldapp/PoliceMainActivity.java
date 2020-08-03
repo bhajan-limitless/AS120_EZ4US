@@ -13,7 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PoliceMainActivity extends AppCompatActivity {
 
-    Button trafik,domestic;
+    Button trafik,domestic,sos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,14 @@ public class PoliceMainActivity extends AppCompatActivity {
         });
 //..............................navigation....................................................
 
-
+        sos=findViewById(R.id.sos);
+        sos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ii=new Intent(PoliceMainActivity.this,LoginActivity.class);
+                startActivity(ii);
+            }
+        });
 
 
 

@@ -46,9 +46,6 @@ public class PoliceLoginActivity extends AppCompatActivity {
             username.setError("Password Incorrect");
             username.requestFocus();
         }
-        else{
-            Toast.makeText(this,"Please fill the correct username and password",Toast.LENGTH_LONG).show();
 
-        }
     }
 }
