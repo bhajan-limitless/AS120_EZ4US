@@ -28,7 +28,7 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_weight="2"
-                android:text="State"/>
+                android:text="@string/state"/>
 
             <TextView
                 android:background="@color/colorAccent"
@@ -38,7 +38,7 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_weight="2"
-                android:text="Cases" />
+                android:text="@string/cases" />
 
         </LinearLayout>
 

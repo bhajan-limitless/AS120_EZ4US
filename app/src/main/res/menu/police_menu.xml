@@ -4,10 +4,10 @@
     <item
         android:id="@+id/harVolBtn"
         android:icon="@drawable/ic_baseline_contactless_24"
-        android:title="Trafficking Reports" />
+        android:title="@string/trafficking_reports" />
 
     <item
         android:id="@+id/trafBtn"
         android:icon="@drawable/ic_baseline_group_24"
-        android:title="Harassment/Violence Reports" />
+        android:title="@string/harassment_violence_reports" />
 </menu>

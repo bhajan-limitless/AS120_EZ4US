@@ -32,7 +32,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sorav Negi"/>
+                    android:text="@string/puranjan_prithu"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date and Time"/>
+                    android:text="@string/date_and_time"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -64,7 +64,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bhajan Singh Kandari "/>
+                    android:text="@string/bhajan_singh_kandari"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="date and time"/>
+                    android:text="@string/date_and_time"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -96,7 +96,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mukesh Bhahuguna"/>
+                    android:text="@string/mukesh_bhahuguna"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="date and time"/>
+                    android:text="@string/date_and_time"/>
             </LinearLayout>
         </LinearLayout>
 

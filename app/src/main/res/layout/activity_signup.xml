@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:gravity="center_vertical"
         android:padding="10dp"
         android:inputType="textPersonName"/>
@@ -27,7 +27,7 @@
         android:ems="10"
         android:gravity="center_vertical"
         android:padding="10dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:layout_marginTop="25dp"
         android:inputType="textPassword"/>
 
@@ -40,7 +40,7 @@
         android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:text="Sign Up" />
+        android:text="@string/sign_up" />
 
     <TextView
         android:layout_marginTop="20dp"
@@ -48,7 +48,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account?  Sign in here"
+        android:text="@string/already_have_an_acct"
         android:textColor="@color/colorPrimary"/>
 
 </LinearLayout>

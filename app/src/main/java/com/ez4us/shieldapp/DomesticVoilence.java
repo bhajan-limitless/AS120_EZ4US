@@ -59,7 +59,8 @@ public class DomesticVoilence extends AppCompatActivity {
     EditText reason;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    private static final String[] Category_List = new String[]{"Child Trafficking","Domestic Violence","Sexual Harassment","Workplace Harrasment"};
+    private static String[] Category_List;
+
     // Declare variable
     private static int Video_Request =101;
     Button btnRecordVideo;
@@ -79,7 +80,9 @@ public class DomesticVoilence extends AppCompatActivity {
         reason = findViewById(R.id.reasonET);
         sumbit = findViewById(R.id.submit_report);
         ddimg = findViewById(R.id.DDimage);
+        Category_List=getResources().getStringArray(R.array.problem);
         category.setThreshold(1);
+
         //---------UID--------------------------------
         FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();

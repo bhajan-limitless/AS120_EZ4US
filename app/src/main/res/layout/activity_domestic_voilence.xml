@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Violence | Harassment"
+            android:text="@string/violence_harassment"
             android:layout_margin="20sp"/>
 
         <RelativeLayout
@@ -33,7 +33,7 @@
             android:layout_height="40dp"
             android:background="@drawable/betteredittext"
             android:layout_centerHorizontal="true"
-            android:hint="Category"/>
+            android:hint="@string/category"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/betteredittext"
-            android:hint="Reason"
+            android:hint="@string/reason"
             android:inputType="textMultiLine"/>
 
         <TextView
@@ -59,7 +59,7 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Audio Recording"
+            android:text="@string/audio_recording"
             android:layout_margin="20sp"/>
 
         <RelativeLayout
@@ -71,7 +71,7 @@
                 android:background="@drawable/rounded_corners"
                 android:id="@+id/audio_record"
                 android:textSize="15sp"
-                android:text="Record Audio"
+                android:text="@string/record_audio"
                 android:textAllCaps="false"
                 android:layout_width="125dp"
                 android:layout_height="40dp"
@@ -82,7 +82,7 @@
                 android:background="@drawable/rounded_corners"
                 android:id="@+id/audio_stop"
                 android:textSize="15sp"
-                android:text="Stop Recording"
+                android:text="@string/stop_recording"
                 android:textAllCaps="false"
                 android:layout_width="125dp"
                 android:layout_height="40dp"
@@ -94,7 +94,7 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Video Recording"
+            android:text="@string/video_recording"
             android:layout_margin="20sp"/>
 
         <Button
@@ -103,7 +103,7 @@
             android:background="@drawable/rounded_corners"
             android:id="@+id/video_record"
             android:textSize="15sp"
-            android:text="Record Video"
+            android:text="@string/record_video"
             android:onClick="captureVideo"
             android:textAllCaps="false"
             android:layout_width="300dp"
@@ -116,7 +116,7 @@
             android:background="@drawable/rounded_corners"
             android:id="@+id/submit_report"
             android:textSize="15sp"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textAllCaps="false"
             android:layout_width="300dp"
             android:layout_height="40dp"

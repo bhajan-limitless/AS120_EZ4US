@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Emergency Contacts"
+            android:text="@string/emergency_contacts"
             android:layout_marginTop="30dp"/>
 
         <EditText
@@ -26,7 +26,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="165dp"
-            android:hint="Mobile Number"
+            android:hint="@string/mobile_no"
             android:inputType="number"
 
             tools:targetApi="o" />
@@ -36,7 +36,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
-            android:hint="Mobile Number"
+            android:hint="@string/mobile_no"
             android:inputType="number"
             android:padding="10dp"
 
@@ -48,7 +48,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:autofillHints=""
-            android:hint="Mobile Number"
+            android:hint="@string/mobile_no"
             android:inputType="number"
 
             tools:targetApi="o" />
@@ -72,7 +72,7 @@
             android:background="@drawable/rounded_corners"
             android:ems="10"
             android:textSize="15sp"
-            android:text="Save Contacts"
+            android:text="@string/save_contact"
             android:textAllCaps="false"
             android:textColor="#FFFFFF" />
 

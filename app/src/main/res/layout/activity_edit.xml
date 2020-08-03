@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Age"
+        android:hint="@string/age"
         android:inputType="textPersonName"
         android:padding="10dp" />
     <EditText
@@ -44,7 +44,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Phone"
+        android:hint="@string/phone"
         android:inputType="textPersonName"
         android:padding="10dp" />
     <EditText
@@ -54,7 +54,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="10dp" />
 
@@ -65,7 +65,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Profession"
+        android:hint="@string/profession"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
@@ -76,7 +76,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/betteredittext"
         android:ems="10"
-        android:hint="Workplace"
+        android:hint="@string/workplace"
         android:inputType="textPersonName"
         android:padding="10dp" />
 
@@ -89,7 +89,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="15sp"
-        android:text="Save Changes"
+        android:text="@string/save_changes"
         android:textAllCaps="false"/>
 
 

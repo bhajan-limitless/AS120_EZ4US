@@ -30,22 +30,22 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Milan Kandwal"/>
+                    android:text="@string/milan_kandwal"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Work place harassment"/>
+                    android:text="@string/work_place_harassment"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"/>
+                    android:text="@string/location"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Zipcode"/>
+                    android:text="@string/zipcode"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -67,22 +67,22 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Puranjan Prithu"/>
+                    android:text="@string/bhajan_singh_kandari"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="sexual harassment"/>
+                    android:text="@string/sexual_harassment"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"/>
+                    android:text="@string/location"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Zipcode"/>
+                    android:text="@string/zipcode"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -104,22 +104,22 @@
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mukesh Bhauguna"/>
+                    android:text="@string/mukesh_bhahuguna"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Domestic Violence"/>
+                    android:text="@string/domestic_voilence"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"/>
+                    android:text="@string/location"/>
                 <TextView
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Zipcode"/>
+                    android:text="@string/zipcode"/>
 
             </LinearLayout>
         </LinearLayout>
