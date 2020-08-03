@@ -47,14 +47,14 @@
             android:id="@+id/uniqueid_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Unique ID"
+            android:hint="@string/unique_id"
             android:textSize="14dp" />
 
         <TextView
             android:id="@+id/later_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unique ID"
+            android:text="@string/unique_id"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -75,7 +75,7 @@
                 android:id="@+id/link_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Age"
+                android:hint="@string/age"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -98,7 +98,7 @@
                 android:id="@+id/phone_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Phone Number"
+                android:hint="@string/phone_number"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -121,7 +121,7 @@
                 android:id="@+id/email_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -145,7 +145,7 @@
                 android:id="@+id/occupation_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Occupation"
+                android:hint="@string/occupation"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -169,7 +169,7 @@
                 android:id="@+id/work_textview"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:hint="Workplace"
+                android:hint="@string/workplace"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -185,7 +185,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_corners"
             android:textAllCaps="false"
-            android:text="Edit Profile"
+            android:text="@string/edit_profile"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -195,7 +195,7 @@
 
             android:textAllCaps="false"
             android:background="@drawable/rounded_corners"
-            android:text="Sign Out"
+            android:text="@string/sign_out"
             android:textColor="#fff"
             android:textSize="15sp" />
 

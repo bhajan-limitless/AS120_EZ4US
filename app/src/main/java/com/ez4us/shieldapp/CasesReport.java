@@ -33,8 +33,7 @@ public class CasesReport extends AppCompatActivity {
 
     DatabaseReference ref;
 
-    String[] Statename = new String[]{"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttarakhand", "Uttar Pradesh", "West Bengal"};
-    int[] TotalCases = new int[Statename.length];
+    String[] Statename;
     ArrayList<CaseModel> CMAL = new ArrayList<>();
     ArrayList<Integer> itemList;
     ListView listView;
@@ -49,6 +48,7 @@ public class CasesReport extends AppCompatActivity {
 
 
         listView = findViewById(R.id.listView);
+        Statename=getResources().getStringArray(R.array.indian_States);
         /*itemList = new ArrayList<>();
         CaseModel p = new CaseModel();*/
         /*String[] Statename = new String[]{"Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttarakhand", "Uttar Pradesh", "West Bengal"};

@@ -49,53 +49,11 @@
             android:id="@+id/reasonET"
             android:layout_margin="10dp"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:background="@drawable/betteredittext"
             android:hint="@string/reason"
             android:inputType="textMultiLine"/>
 
-        <TextView
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/audio_recording"
-            android:layout_margin="20sp"/>
-
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:textColor="#ffffff"
-                android:background="@drawable/rounded_corners"
-                android:id="@+id/audio_record"
-                android:textSize="15sp"
-                android:text="@string/record_audio"
-                android:textAllCaps="false"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"/>
-
-            <Button
-                android:textColor="#ffffff"
-                android:background="@drawable/rounded_corners"
-                android:id="@+id/audio_stop"
-                android:textSize="15sp"
-                android:text="@string/stop_recording"
-                android:textAllCaps="false"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
-
-        <TextView
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/video_recording"
-            android:layout_margin="20sp"/>
 
         <Button
             android:layout_margin="20dp"

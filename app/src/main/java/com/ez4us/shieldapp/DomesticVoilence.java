@@ -49,7 +49,7 @@ public class DomesticVoilence extends AppCompatActivity {
     SimpleDateFormat datetimeformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
     String datetime = datetimeformat.format(c.getTime());
 
-    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh:mm:ss aa");
+    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yy-hh");
     String date = dateformat.format(c.getTime());
 
     //variable declare
@@ -130,57 +130,22 @@ public class DomesticVoilence extends AppCompatActivity {
             }
         });
 
-//--------------------------------------------Audio Service---------------------------------------------------------------
+        // --------------------------------------------------> Video Service <---------------------------------------------
 
-        btnRecord = findViewById(R.id.audio_record);
-        btnStop = findViewById(R.id.audio_stop);
-
-        // Intitalize variables
-        btnStop.setEnabled(false);
-
-        // Folder Creation
-        File audiofolder = new File(getCacheDir()+"/shieldapp/audios");
-        if(!audiofolder.exists()){
-            audiofolder.mkdirs();
-        }
-        audiofile = getCacheDir()+"/shieldapp/audios/"+datetime+".3gp";
-
-        // Start recording
-        btnRecord.setOnClickListener(new View.OnClickListener() {
+        btnRecordVideo = findViewById(R.id.video_record);
+        btnRecordVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkPermission()){
-                    btnStop.setEnabled(true);
-                    btnRecord.setEnabled(false);
-                    mediaRecorder = new MediaRecorder();
-                    mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                    mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-                    mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                    mediaRecorder.setOutputFile(audiofile);
-                    try {
-                        mediaRecorder.prepare();
-                    }catch (IOException e){
-                        // failed
-                    }
-                    mediaRecorder.start();
-                    Toast.makeText(DomesticVoilence.this, "Recording Started", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    RequestPermissions();
-                }
+                captureVideo();
+
             }
         });
-
-        // Stop recording
-        btnStop.setOnClickListener(new View.OnClickListener() {
+        //------------------------------submit-report-------------------------------------
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("ReportedData");
+        sumbit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnStop.setEnabled(false);
-                btnRecord.setEnabled(true);
-                mediaRecorder.stop();
-                mediaRecorder.release();
-                mediaRecorder =null;
-                Toast.makeText(DomesticVoilence.this, "Recording Stopped", Toast.LENGTH_SHORT).show();
 
                 // ---------------------------------> uploading to firebase <--------------------------------------------------
 
@@ -212,7 +177,7 @@ public class DomesticVoilence extends AppCompatActivity {
                             public void onFailure(@NonNull Exception exception) {
                                 // Handle unsuccessful uploads
                                 progressDialog.dismiss();
-                                Toast.makeText(DomesticVoilence.this, "Upload Error", Toast.LENGTH_LONG).show();
+                                Toast.makeText(DomesticVoilence.this, "No Audio Recorded", Toast.LENGTH_LONG).show();
                             }
                         })
                         .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -224,24 +189,7 @@ public class DomesticVoilence extends AppCompatActivity {
                             }
                         });
 
-            }
-        });
-
-        // --------------------------------------------------> Video Service <---------------------------------------------
-
-        btnRecordVideo = findViewById(R.id.video_record);
-        btnRecordVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                captureVideo();
-            }
-        });
-        //------------------------------submit-report-------------------------------------
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("ReportedData");
-        sumbit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            //-------------------------------------> Report file upload <-----------------------------------------
 
                 String catET = category.getText().toString().trim().toUpperCase();
                 String resET = reason.getText().toString().trim();
@@ -252,7 +200,8 @@ public class DomesticVoilence extends AppCompatActivity {
 
             }
         });
-//----------dropdown menu-------------------------------------------------
+
+        //----------dropdown menu-------------------------------------------------
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Category_List);
         category.setAdapter(adapter);
         ddimg.setOnClickListener(new View.OnClickListener(){
@@ -261,7 +210,6 @@ public class DomesticVoilence extends AppCompatActivity {
                 category.showDropDown();
             }
         });
-
 
     }
 
@@ -281,46 +229,6 @@ public class DomesticVoilence extends AppCompatActivity {
             Uri myvideo = data.getData();
             Toast.makeText(this, "Video saved succesfully", Toast.LENGTH_SHORT).show();
 
-            // ---------------------------------> uploading to firebase <--------------------------------------------------
-
-            final ProgressDialog progressDialog = new ProgressDialog(DomesticVoilence.this);
-            progressDialog.setTitle("Uploading");
-            progressDialog.show();
-
-            StorageReference storageReference;
-            storageReference  = FirebaseStorage.getInstance().getReference();
-
-            FirebaseAuth mAuth;
-            mAuth = FirebaseAuth.getInstance();
-            final String UniqueID = mAuth.getCurrentUser().getUid();
-
-            StorageReference riversRef = storageReference.child("Reports/Domestic/"+UniqueID+"/"+date+"/Videos/"+datetime+".mp4");
-
-            riversRef.putFile(myvideo)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            // Handle sucessful uploads
-                            progressDialog.dismiss();
-                            Toast.makeText(DomesticVoilence.this, "Video Uploaded", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            // Handle unsuccessful uploads
-                            progressDialog.dismiss();
-                            Toast.makeText(DomesticVoilence.this, "Upload Error", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-
-
-                            progressDialog.setMessage("Uploading... ");
-                        }
-                    });
         }
 
     }
